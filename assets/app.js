@@ -235,7 +235,7 @@
       ["orange_bell_pepper", "pepper", 350, 545, "Orange", "above"],
       ["black_bell_pepper", "pepper", 530, 545, "Black", "above"],
       ["purple_bell_pepper", "pepper", 710, 545, "Purple", "above"],
-      ["white_bell_pepper", "pepper", 530, 478, "White", "right"]
+      ["white_bell_pepper", "pepper", 440, 478, "White", "right"]
     ];
     // feeders: [id, line, x, y, label, into]
     var FEEDS = [
@@ -259,7 +259,7 @@
       ["berry", "M530 425H710", "raspberry", "golden_raspberry"], ["berry", "M710 425H890", "golden_raspberry", "miracle_berry"],
       ["pepper", "M170 545H350", "yellow_bell_pepper", "orange_bell_pepper"], ["pepper", "M350 545H530", "orange_bell_pepper", "black_bell_pepper"],
       ["pepper", "M530 545H710", "black_bell_pepper", "purple_bell_pepper"],
-      ["pepper", "M350 545H420L487 478H530", "orange_bell_pepper", "white_bell_pepper"],
+      ["pepper", "M350 545H373L440 478", "orange_bell_pepper", "white_bell_pepper"],
       ["grape", "M170 690H350", "red_grape", "concord_grape"], ["grape", "M350 690H530", "concord_grape", "cotton_candy_grape"]
     ];
     var LINE_ORDER = ["corn", "roma", "cherry", "berry", "pepper", "grape"];

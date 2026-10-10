@@ -1,0 +1,18 @@
+# Credentials and local reference notes: never commit
+key.txt
+curseforge.md
+*.key
+.env
+
+# Downloaded mod and pack files (All Rights Reserved; not redistributed here)
+*.jar
+*.zip
+/vendor/
+
+# Tooling
+node_modules/
+.impeccable/review/
+.impeccable/build/
+.impeccable/mocks/
+.DS_Store
+.impeccable/hook.cache.json

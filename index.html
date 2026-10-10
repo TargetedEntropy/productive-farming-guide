@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Productive Farming in All the Mods 11: an unofficial field guide</title>
+<meta name="description" content="Every crop, cross, villager trade and recipe in the Productive Farming mod as it ships in All the Mods 11, read from the mod files. Searchable crop index, recipe finder, mutation map and power-player notes.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Productive Farming in All the Mods 11">
+<meta property="og:description" content="The crop mutation network, 168 crops, 149 villager trades and the auto-farm multiblock, mapped from the mod files.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/overpass-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("pf-theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+})();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the guide</a>
+
+<header class="bar">
+  <a class="bar__home" href="#top" aria-label="Productive Farming field guide, top of page">
+    <span class="roundel" aria-hidden="true">PF</span>
+    <span class="bar__title">Productive Farming <span class="bar__sub">field guide</span></span>
+  </a>
+  <p class="plate" aria-label="Versions covered">
+    <span>Mod <b data-meta="modShort">0.12.1</b></span>
+    <span>Minecraft <b data-meta="minecraft">26.1.2</b></span>
+    <span>ATM11 <b data-meta="packVersion">0.11.1-beta</b></span>
+  </p>
+  <div class="bar__tools">
+    <button class="tool" type="button" id="contents-toggle" aria-expanded="false" aria-controls="rail">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg>
+      <span>Contents</span>
+    </button>
+    <button class="tool" type="button" id="theme-toggle" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path class="fill" d="M12 5a7 7 0 0 1 0 14z"/></svg>
+      <span data-theme-label>Night map</span>
+    </button>
+  </div>
+</header>
+
+<div class="shell" id="top">
+  <nav class="rail" id="rail" aria-label="Sections">
+    <ol>
+      <li><a href="#start" style="--line:var(--l-green)"><span class="bullet">A</span>Start here</a></li>
+      <li><a href="#forms" style="--line:var(--l-brown)"><span class="bullet">B</span>Crop forms</a></li>
+      <li><a href="#traits" style="--line:var(--l-purple)"><span class="bullet">C</span>Traits</a></li>
+      <li><a href="#crossbreeding" style="--line:var(--l-red)"><span class="bullet">D</span>Crossbreeding</a></li>
+      <li><a href="#autofarm" style="--line:var(--l-blue)"><span class="bullet">E</span>Auto-farm</a></li>
+      <li><a href="#animals" style="--line:var(--l-orange)"><span class="bullet">F</span>Animals</a></li>
+      <li><a href="#flowers" style="--line:var(--l-magenta)"><span class="bullet">G</span>Flowers and dye</a></li>
+      <li><a href="#crops" style="--line:var(--l-teal)"><span class="bullet">H</span>Crop index</a></li>
+      <li><a href="#recipes" style="--line:var(--l-amber)"><span class="bullet bullet--dark">I</span>Recipe finder</a></li>
+      <li><a href="#power" style="--line:var(--ink)"><span class="bullet bullet--ink">J</span>Power-player points</a></li>
+      <li><a href="#issues" style="--line:var(--l-slate)"><span class="bullet">K</span>Known issues</a></li>
+      <li><a href="#credits" style="--line:var(--ink)"><span class="bullet bullet--ink">L</span>Credits and sources</a></li>
+    </ol>
+  </nav>
+
+  <main id="main">
+    <section class="hero">
+      <h1>Productive Farming in All the Mods 11</h1>
+      <p class="lede">Productive Farming adds <b data-count="crops">168</b> crops that carry four inheritable traits, <b data-count="mutations">19</b> crosses that bees make for you, <b data-count="flowers">35</b> dye-bearing flowers and a multiblock farm that harvests on its own. This guide reads its numbers from the shipped jar and the ATM11 pack files, and marks the places where the quest book and the code disagree.</p>
+      <p class="hero__ways">
+        <a class="way" href="#crops">Look up a crop</a>
+        <a class="way" href="#recipes">Find a recipe</a>
+        <a class="way" href="#power">Skip to the power-player points</a>
+      </p>
+    </section>
+
+    <figure class="network" id="network" aria-labelledby="network-title">
+      <figcaption>
+        <h2 id="network-title">The crossbreeding network</h2>
+        <p>Each line is a family of crosses in the order you unlock them. Pick a station to see what to plant, what to pollinate it with and the odds.</p>
+      </figcaption>
+      <div class="network__body">
+        <div class="network__scroll" tabindex="0" role="group" aria-label="Crossbreeding network map. Scrolls sideways on small screens.">
+          <svg id="network-map" viewBox="0 0 1200 660" role="img" aria-label="Transit-style map of the 19 crop mutations"></svg>
+        </div>
+        <aside class="board" id="board" aria-live="polite" aria-label="Selected station"></aside>
+      </div>
+      <ul class="legend" aria-label="Map key">
+        <li><svg viewBox="0 0 28 16" aria-hidden="true"><circle class="k-buy" cx="14" cy="8" r="5.5"/></svg>Sold by farmer villagers</li>
+        <li><svg viewBox="0 0 28 16" aria-hidden="true"><circle class="k-mut" cx="14" cy="8" r="6.5"/><circle class="k-mut-in" cx="14" cy="8" r="2.5"/></svg>Mutation only</li>
+        <li><svg viewBox="0 0 28 16" aria-hidden="true"><rect class="k-feed" x="9" y="3" width="10" height="10"/></svg>Vanilla pollen donor</li>
+        <li><svg viewBox="0 0 28 16" aria-hidden="true"><path class="k-link" d="M3 8h22"/></svg>Transfer: one line feeds another</li>
+      </ul>
+      <noscript><p class="notice-inline">The map, crop index and recipe finder are drawn with JavaScript. The written sections below work without it.</p></noscript>
+    </figure>
+
+    <!-- A -->
+    <section class="sec" id="start" style="--line:var(--l-green)">
+      <header class="opener"><span class="bullet">A</span><h2>Start here</h2></header>
+      <div class="prose">
+        <p>You do not craft your way into this mod. Seeds come from farmer villagers and from village farm plots, and everything else follows from planting them. In ATM11 the quest chapter is called Productive Farming and sits in the same group as the other Productive mods.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Walk a village first</h3>
+          <p>About a third of the wheat in village farm plots is swapped for mod crops when the village generates. Plains villages can hold fifteen kinds, from Bok Choy to Spring Onion. Break them and you have seeds before you own an emerald.</p>
+        </li>
+        <li>
+          <h3>Trade with a farmer</h3>
+          <p>A novice farmer can offer any of 97 ground and tall crops at one emerald for four seeds. Higher levels add herbs and berries, then mushrooms, grapes and melons, then trellis crops. Master level adds nothing new.</p>
+        </li>
+        <li>
+          <h3>Plant, then read the tooltip</h3>
+          <p>Hold Shift over any seed to see its four traits. With Jade installed, as it is in ATM11, looking at a planted crop shows the same traits and any pending mutation.</p>
+        </li>
+        <li>
+          <h3>Harvest with a right-click</h3>
+          <p>Right-clicking a ripe crop takes the produce and leaves the plant in the ground with its traits intact. Those traits improve a little each time it ripens, so the plant you keep is worth more than the one you replant.</p>
+        </li>
+        <li>
+          <h3>Put a beehive beside two crops</h3>
+          <p>Any beehive within four blocks of a matching pair can turn one of them into a new variety. That is how you reach the 19 crops no villager sells.</p>
+        </li>
+        <li>
+          <h3>Build the Farm Controller</h3>
+          <p>A ring of bricks or glass with a controller in the wall becomes a farm that harvests, collects and can fertilise from a fish tank underneath. <a href="#autofarm">Section E</a> has the rules.</p>
+        </li>
+      </ol>
+      <div class="tablewrap">
+        <table class="sign" id="trade-table">
+          <caption>What each farmer level can sell. Every trade gives four seeds and restocks after 16 uses.</caption>
+          <thead><tr><th scope="col">Villager level</th><th scope="col">Sells</th><th scope="col" class="num">Kinds</th><th scope="col" class="num">Price</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><span class="pips" data-level="1" aria-hidden="true"></span>Novice</th><td>Ground crops, grains and tall crops</td><td class="num" data-trade-count="1">97</td><td class="num">1 emerald</td></tr>
+            <tr><th scope="row"><span class="pips" data-level="2" aria-hidden="true"></span>Apprentice</th><td>Herbs and berry bushes</td><td class="num" data-trade-count="2">29</td><td class="num">1 emerald</td></tr>
+            <tr><th scope="row"><span class="pips" data-level="3" aria-hidden="true"></span>Journeyman</th><td>Mushrooms, grapes and melons</td><td class="num" data-trade-count="3">13</td><td class="num">2 emeralds</td></tr>
+            <tr><th scope="row"><span class="pips" data-level="4" aria-hidden="true"></span>Expert</th><td>Trellis and climbing crops</td><td class="num" data-trade-count="4">10</td><td class="num">2 emeralds</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <p>Seed trades share the farmer's normal trade pool, so a given villager shows only a couple of them. Break and replace the composter to reroll a farmer you have not traded with yet.</p>
+      </div>
+    </section>
+
+    <!-- B -->
+    <section class="sec" id="forms" style="--line:var(--l-brown)">
+      <header class="opener"><span class="bullet">B</span><h2>Crop forms</h2></header>
+      <div class="prose">
+        <p>The crops come in eight growth forms. The form decides where a seed can go and what a harvest leaves behind, so it is the first thing to check when something refuses to plant.</p>
+      </div>
+      <div class="forms" id="forms-list">
+        <article class="form">
+          <div class="blockmap" data-map=".../.p./SSS" data-label="One block tall on farmland"></div>
+          <div><h3>Ground crops and grains <span class="tally" data-form-count="field,grain"></span></h3>
+          <p>Plant on farmland like wheat. Seven growth stages. A right-click harvest sets the plant back to a seedling.</p></div>
+        </article>
+        <article class="form">
+          <div class="blockmap" data-map=".p./.p./SSS" data-label="Two blocks tall on farmland"></div>
+          <div><h3>Tall crops <span class="tally" data-form-count="tall"></span></h3>
+          <p>Corn, tomatoes, cotton and friends need two blocks of air. After a harvest they drop back to a mid stage, not to a seedling, so they come back faster.</p></div>
+        </article>
+        <article class="form">
+          <div class="blockmap" data-map=".p./.w./.D." data-label="Rooted in one block of water"></div>
+          <div><h3>Water crops <span class="tally" data-form-count="water"></span></h3>
+          <p>Water Chestnut, Watercress and Water Caltrop go into water one block deep. The lower half sits in the water and the upper half must be in air.</p></div>
+        </article>
+        <article class="form">
+          <div class="blockmap" data-map=".../.h./SSS" data-label="Low plant on farmland"></div>
+          <div><h3>Herbs <span class="tally" data-form-count="herb"></span></h3>
+          <p>Grow like ground crops. Shears on a plant past its second stage take a cutting you can replant and step its growth back one stage.</p></div>
+        </article>
+        <article class="form">
+          <div class="blockmap" data-map=".../.b./SSS" data-label="Bush on farmland"></div>
+          <div><h3>Berry bushes <span class="tally" data-form-count="bush"></span></h3>
+          <p>Thirteen berries. Picking leaves the bush at a mid stage so it fruits again quickly, the same way sweet berries do.</p></div>
+        </article>
+        <article class="form">
+          <div class="blockmap" data-map="..../.fv./SSSS" data-label="Planted on a fence post over farmland"></div>
+          <div><h3>Fence-post crops <span class="tally" data-form-count="trellis,climber,vine"></span></h3>
+          <p>Kiwi, Goji Berry, the four grapes and eight climbers such as Cucumber, Vanilla and Luffa. Set a fence post on farmland and plant into the post. The plant spreads to neighbouring posts.</p></div>
+        </article>
+        <article class="form">
+          <div class="blockmap" data-map=".../.mM/SSD" data-label="Stem with fruit beside it"></div>
+          <div><h3>Melons <span class="tally" data-form-count="melon"></span></h3>
+          <p>Cantaloupe and Honeydew grow on a stem with the fruit block beside it. Nine slices craft a whole melon. One slice crafts back into seeds.</p></div>
+        </article>
+        <article class="form">
+          <div class="blockmap" data-map=".../.Cs/DDD" data-label="Growing from the side of a composter"></div>
+          <div><h3>Mushrooms <span class="tally" data-form-count="shroom"></span></h3>
+          <p>Feed a mushroom to a composter. One time in five a growth sprouts on a free side of the composter and ripens over five stages. The four vanilla mushrooms and fungi do this too.</p></div>
+        </article>
+      </div>
+      <ul class="legend legend--blocks" aria-label="Diagram key">
+        <li><span class="cell cell--S"></span>Farmland</li>
+        <li><span class="cell cell--D"></span>Dirt or any block</li>
+        <li><span class="cell cell--w"></span>Water</li>
+        <li><span class="cell cell--p"></span>Plant</li>
+        <li><span class="cell cell--f"></span>Fence post</li>
+        <li><span class="cell cell--C"></span>Composter</li>
+      </ul>
+    </section>
+
+    <!-- C -->
+    <section class="sec" id="traits" style="--line:var(--l-purple)">
+      <header class="opener"><span class="bullet">C</span><h2>Traits</h2></header>
+      <div class="prose">
+        <p>Every seed and every planted crop carries four traits. They travel with the seed, they pass to whatever the crop mutates into, and they climb by one step at random as the plant keeps ripening.</p>
+      </div>
+      <div class="tablewrap">
+        <table class="sign">
+          <caption>The four traits in mod version 0.12.1</caption>
+          <thead><tr><th scope="col">Trait</th><th scope="col">Levels</th><th scope="col">What it does</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Yield</th><td>Low, Medium, High, Very High</td><td>Adds one extra item per level to every stack of produce a harvest drops. Very High is <span class="n">+3</span>. Seeds are not multiplied.</td></tr>
+            <tr><th scope="row">Mutability</th><td>None, Low, Medium, High, Very High</td><td>Multiplies the chance of a cross by <span class="n">1 + 0.5</span> per level, so Very High triples it.</td></tr>
+            <tr><th scope="row">Growth</th><td>Low, Medium, High, Very High</td><td>Meant to speed growth. In an AgriTech: Evolved planter it divides the processing time by level plus one. For wheat, Mystical Agriculture and other outside crops it forces extra growth ticks. For the mod's own crops in soil it currently does the opposite. See the notice below.</td></tr>
+            <tr><th scope="row">Resistance</th><td>None, Low, Medium, High, Very High</td><td>Stored, inherited and shown in tooltips. Nothing in the 0.12 code reads it yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="notice">
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v5M12 17.6v.4"/></svg>Known bug: Growth slows the mod's own crops</h3>
+        <p>The mod's crops grow about twice as fast as vanilla wheat at Growth Low. Each Growth level then divides that speed instead of multiplying it, so a Very High plant in soil ripens at roughly a quarter of the pace. This is <a href="https://github.com/JDKDigital/productivefarming/issues/35">issue 35</a> on the mod's tracker, open as of October 2026. Until it is fixed, high-Growth seeds belong in planters, not in the ground.</p>
+      </aside>
+      <div class="prose">
+        <h3>How traits climb</h3>
+        <p>Each time a crop reaches full ripeness there is a <span class="n">7%</span> chance that one of the four traits, picked at random, goes up a level. A roll that lands on a trait already at its cap is wasted. On average that is one point every 14 ripenings, about 170 ripenings to reach Very High Yield, and about 320 to max everything.</p>
+        <p>A right-click harvest, and the Farm Controller, keep the same plant in the ground, so its traits keep accumulating. Breaking the crop drops seeds stamped with the plant's current traits.</p>
+        <h3>Crops from other mods</h3>
+        <p>Vanilla wheat, carrots, potatoes and beetroot gain traits too, along with Mystical Agriculture, Croptopia and the Silent Gear flax and fluffy plants. All of those are in ATM11. Mystical Agriculture seeds climb more slowly the higher their tier.</p>
+      </div>
+      <div class="tablewrap">
+        <table class="sign" id="stat-table">
+          <caption>Chance per ripening that a trait goes up</caption>
+          <thead><tr><th scope="col">Seed</th><th scope="col" class="num">Chance</th><th scope="col">To scale</th><th scope="col" class="num">Ripenings per point</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- D -->
+    <section class="sec" id="crossbreeding" style="--line:var(--l-red)">
+      <header class="opener"><span class="bullet">D</span><h2>Crossbreeding</h2></header>
+      <div class="prose">
+        <p>A cross needs two crops and a bee. One crop is the target, the plant that changes. The other is the pollen donor. When it works the target is marked with a mutation, and harvesting it gives seeds of the new variety that carry the target's traits.</p>
+        <h3>With a hive</h3>
+        <p>Every time a bee returns to its hive and delivers nectar, the hive scans a cube reaching four blocks in every direction. If both halves of a recipe are inside, it picks one matching recipe at random and rolls its chance against the target. A Productive Bees advanced hive reaches two blocks further per Range upgrade.</p>
+        <p>Because the hive picks one recipe per visit, a hive surrounded by several possible crosses spreads its attempts across all of them. One hive per cross is faster.</p>
+        <h3>By hand</h3>
+        <p>The Pollen Sieve upgrade, a Productive Bees item this mod adds, gives an advanced hive a <span class="n">2%</span> chance per bee visit to bottle Pollen from a random crop in range. Use Pollen on a ripe target crop to roll the cross yourself. The Pollen is used up whether or not it takes.</p>
+        <h3>The odds</h3>
+        <p>Chance equals the recipe's base chance times <span class="n">1 + 0.5</span> for each Mutability level on the target. A Crop Duster bee from Productive Bees multiplies the result by five, and does the same for the sieve.</p>
+        <h3>Collecting the result</h3>
+        <p>Jade shows the pending mutation on the crop. Right-click a ripe mutated crop to harvest it safely: you get the new seed and the plant returns to normal. Breaking it works as well.</p>
+      </div>
+      <div class="tablewrap">
+        <table class="sign" id="mutation-table">
+          <caption>All 19 crosses. Base chance is per attempt at Mutability None.</caption>
+          <thead><tr><th scope="col">Result</th><th scope="col">Target crop</th><th scope="col">Pollen from</th><th scope="col" class="num">Base</th><th scope="col">To scale</th><th scope="col" class="num">At Very High</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <aside class="notice">
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v5M12 17.6v.4"/></svg>Roma and Beefsteak share three outcomes</h3>
+        <p>Black Beauty, Blue Beauty and White Wonder all come from pollinating Beefsteak with Roma. Each attempt picks one of the three at random before it rolls, so expect to collect them in no particular order.</p>
+      </aside>
+    </section>
+
+    <!-- E -->
+    <section class="sec" id="autofarm" style="--line:var(--l-blue)">
+      <header class="opener"><span class="bullet">E</span><h2>Auto-farm</h2></header>
+      <div class="prose">
+        <p>The Farm Controller turns a walled bed into a machine. It right-click harvests everything on the bed, pulls the drops into its own 27 slots, and if there is a fish tank under the bed it fertilises from that too. It handles this mod's crops, vanilla crops, Mystical Agriculture and the fruit on Productive Trees.</p>
+      </div>
+      <div class="split">
+        <figure class="diagram">
+          <div class="blockmap blockmap--lg" data-map="oWWWWWo/WSSSSSW/WSSwSSW/WSSSSSW/oWWKWWo" data-label="Plan view: a ring of wall blocks around farmland, controller in the wall, corners optional"></div>
+          <figcaption>Plan. The wall ring sits level with the soil. Corners can be left out.</figcaption>
+        </figure>
+        <figure class="diagram">
+          <div class="blockmap blockmap--lg" data-map=".ppppp./KSSSSSW/WwwwwwW/WwwwwwW/DDDDDDD" data-label="Side view: crops above soil level with the top of the wall, water tank between deeper walls"></div>
+          <figcaption>Section of a fish farm. Walls three blocks tall leave a tank under the soil.</figcaption>
+        </figure>
+      </div>
+      <ul class="legend legend--blocks" aria-label="Diagram key">
+        <li><span class="cell cell--W"></span>Wall block</li>
+        <li><span class="cell cell--K"></span>Farm Controller</li>
+        <li><span class="cell cell--o"></span>Optional corner</li>
+        <li><span class="cell cell--S"></span>Farmland</li>
+        <li><span class="cell cell--w"></span>Water</li>
+        <li><span class="cell cell--p"></span>Crop</li>
+      </ul>
+      <div class="prose">
+        <h3>Building rules</h3>
+        <ul>
+          <li>Walls form one closed rectangle with the controller somewhere in it. The smallest farm is a 3 by 3 ring around a single block.</li>
+          <li>The inside of the ring, at the same height as the top of the wall, is your soil. Crops are harvested in the two blocks above it.</li>
+          <li>Wall blocks are any stone bricks, any glass, hoppers, and the brick blocks listed below. You can mix them.</li>
+          <li>Right-click the controller. It either reports the farm as assembled or names the block that broke the shape.</li>
+          <li>Pipes can pull items from the controller and push Nutrient Water into it.</li>
+        </ul>
+        <p class="walls" id="wall-list"></p>
+        <h3>Size limits</h3>
+        <p>The mod's defaults allow a wall loop of 200 blocks, an inside volume of 1024 blocks and walls 20 blocks deep. ATM11 ships no override for these, which makes a 32 by 32 bed the largest single-layer farm.</p>
+      </div>
+      <aside class="notice">
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v5M12 17.6v.4"/></svg>The quest book gives different numbers</h3>
+        <p>The ATM11 quest text describes a 2 by 2 minimum and a ceiling of 200 blocks of volume, or a 10 by 10 bed. The mod's own Ponder scene and code say 3 by 3 and 1024. If a large farm is refused, the controller's message prints the volume it measured against the limit in force on your server.</p>
+      </aside>
+      <div class="prose">
+        <h3>Cycle time</h3>
+        <p>The controller works once every 264 ticks with no upgrades. It has four upgrade slots that take Time, Time II and Stability upgrades from Productive Lib. Each Time upgrade counts once and each Time II counts twice.</p>
+      </div>
+      <div class="tablewrap">
+        <table class="sign" id="cycle-table">
+          <caption>Controller cycle by upgrade load</caption>
+          <thead><tr><th scope="col">Upgrades fitted</th><th scope="col" class="num">Ticks</th><th scope="col" class="num">Seconds</th><th scope="col">To scale</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <h3>Stability upgrade</h3>
+        <p>Produce with different traits does not stack, and a farm of slowly improving plants fills its 27 slots with one-item stacks. A Stability upgrade strips the traits from everything the controller collects, so it stacks again. It strips seeds as well, so keep your breeding bed on a separate controller without one.</p>
+        <h3>Full output</h3>
+        <p>When no slot is free the controller stops harvesting and leaves ripe crops standing. Nothing is destroyed.</p>
+        <h3>Fish farm and Nutrient Water</h3>
+        <p>Build the walls at least three blocks tall and the space under the soil becomes a tank. The controller breeds the fish in it, culls the surplus into drops, and makes Nutrient Water.</p>
+        <ul>
+          <li>Each fish adds <span class="n">50 mB</span> of Nutrient Water per cycle. The controller holds <span class="n">10,000 mB</span>.</li>
+          <li>Each <span class="n">50 mB</span> is spent as one bone meal on one growing crop, or on one Productive Trees fruit tree.</li>
+          <li>The tank supports one fish for every two blocks of the farm's footprint. Beyond that the controller culls, always leaving two of each species.</li>
+          <li>Cod, Salmon, Tropical Fish, Pufferfish, Squid and Glow Squid all count, as does any other mod's fish.</li>
+          <li>Nutrient Water can be bucketed out of one controller and into another, or piped.</li>
+        </ul>
+      </div>
+      <aside class="notice">
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v5M12 17.6v.4"/></svg>Claimed chunks block the farm</h3>
+        <p>The controller harvests through a fake player. Inside an FTB Chunks claim it will sit idle or fail to replant until you allow fake players in the claim's settings. This is the most common cause of a controller that forms but does nothing.</p>
+      </aside>
+    </section>
+
+    <!-- F -->
+    <section class="sec" id="animals" style="--line:var(--l-orange)">
+      <header class="opener"><span class="bullet">F</span><h2>Animals</h2></header>
+      <div class="prose">
+        <p>Two troughs automate a pasture. Both act once a minute on animals within four blocks sideways and one block up or down, and both take Range and Time upgrades. A Range upgrade adds one block. A Time upgrade shortens the interval by 5%.</p>
+      </div>
+      <div class="pair">
+        <article>
+          <h3>Feeding Trough</h3>
+          <p>Nine slots of feed, filled by hand or by pipe. Each minute it offers every nearby adult its breeding food, which puts the animal in love mode exactly as if you had fed it. Any breeding item works, so one trough can hold wheat, seeds and carrots for a mixed pen. A Child upgrade lets it feed babies as well, which speeds their growth.</p>
+        </article>
+        <article>
+          <h3>Watering Trough</h3>
+          <p>Holds ten buckets of water, filled by bucket or pipe. Each minute it takes ten seconds off the breeding cooldown of every adult that is waiting to breed again, at 100 mB per animal. That shortens the five-minute cooldown by about a seventh.</p>
+        </article>
+      </div>
+      <aside class="notice">
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v5M12 17.6v.4"/></svg>Tooltip and code differ on the Watering Trough</h3>
+        <p>The item tooltip and the quest book say it makes baby animals grow faster. The 0.12 code only acts on adults with a breeding cooldown. Treat it as a breeding-rate block. For faster babies use a Feeding Trough with a Child upgrade.</p>
+      </aside>
+    </section>
+
+    <!-- G -->
+    <section class="sec" id="flowers" style="--line:var(--l-magenta)">
+      <header class="opener"><span class="bullet">G</span><h2>Flowers and dye</h2></header>
+      <div class="prose">
+        <p>The mod adds 18 wild flowers and 3 flowering vines, and gives 14 vanilla flowers a version that can hold any colour. A flower's colour is a real value, and bees mix it.</p>
+        <p>When a hive has two different kinds of flower in range, each bee visit has a <span class="n">15%</span> chance to plant a new flower of the first kind nearby. Its colour is a blend of the two parents, somewhere between 30% and 70% of the way from one to the other. Put any coloured flower alone in a crafting grid and you get the dye nearest to its colour. Tall flowers give two.</p>
+        <p>ATM11 includes Dyenamics, so its eighteen extra dyes are in play. Great Lobelia already gives Ultramarine and Zinnia gives Amber without any breeding.</p>
+      </div>
+      <div class="blend" id="blend">
+        <h3>Blend preview</h3>
+        <div class="blend__pick">
+          <label>First parent <select id="blend-a"></select></label>
+          <label>Second parent <select id="blend-b"></select></label>
+        </div>
+        <ol class="blend__out" id="blend-out" aria-live="polite"></ol>
+        <p class="fine">Five evenly spaced samples of the range a single cross can land in, with the dye each would craft into.</p>
+      </div>
+      <div id="flower-groups"></div>
+      <aside class="notice">
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 20h19z"/><path d="M12 10v5M12 17.6v.4"/></svg>Bone meal will probably not spawn them</h3>
+        <p>The quest book says the new flowers appear when you bone meal grass. That behaviour is behind a config switch which is off by default, and the pack does not turn it on. Expect to find them growing wild in forests, plains, jungles, swamps and hills, at roughly one patch per 32 chunks, then multiply them with bees.</p>
+      </aside>
+    </section>
+
+    <!-- H -->
+    <section class="sec" id="crops" style="--line:var(--l-teal)">
+      <header class="opener"><span class="bullet">H</span><h2>Crop index</h2></header>
+      <div class="prose">
+        <p>Every crop in the jar, with where it comes from and what a planter makes of it. Open a row for the rest.</p>
+      </div>
+      <form class="finder" id="crop-form" role="search" aria-label="Crop index">
+        <label class="search">
+          <span class="vh">Search crops by name or Latin name</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg>
+          <input type="search" id="crop-q" placeholder="Search 172 crops, e.g. corn or Brassica" autocomplete="off" spellcheck="false">
+        </label>
+        <fieldset class="chips">
+          <legend>Form</legend>
+          <div id="crop-forms"></div>
+        </fieldset>
+        <fieldset class="chips">
+          <legend>Source</legend>
+          <div id="crop-sources"></div>
+        </fieldset>
+        <p class="finder__status" id="crop-status" aria-live="polite"></p>
+      </form>
+      <ul class="index" id="crop-list"></ul>
+      <p class="more"><button type="button" class="btn" id="crop-more" hidden>Show all crops</button></p>
+    </section>
+
+    <!-- I -->
+    <section class="sec" id="recipes" style="--line:var(--l-amber)">
+      <header class="opener"><span class="bullet bullet--dark">I</span><h2>Recipe finder</h2></header>
+      <div class="prose">
+        <p>Crafting, smoking, crosses, villager trades, planter outputs and storage blocks in one list. Type an item name to see every way it is made or used.</p>
+      </div>
+      <form class="finder" id="recipe-form" role="search" aria-label="Recipe finder">
+        <label class="search">
+          <span class="vh">Search recipes by item name</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg>
+          <input type="search" id="recipe-q" placeholder="Search recipes, e.g. trough, sponge or rainbow" autocomplete="off" spellcheck="false">
+        </label>
+        <fieldset class="chips">
+          <legend>Kind</legend>
+          <div id="recipe-kinds"></div>
+        </fieldset>
+        <p class="finder__status" id="recipe-status" aria-live="polite"></p>
+      </form>
+      <ul class="recipes" id="recipe-list"></ul>
+      <p class="more"><button type="button" class="btn" id="recipe-more" hidden>Show all results</button></p>
+    </section>
+
+    <!-- J -->
+    <section class="sec" id="power" style="--line:var(--ink)">
+      <header class="opener"><span class="bullet bullet--ink">J</span><h2>Power-player points</h2></header>
+      <div class="prose">
+        <p>The details that change how you build. Each one is drawn from the jar or the source, not from play-testing, so check anything surprising in a test world before you commit a base to it.</p>
+      </div>
+      <ol class="points">
+        <li>
+          <h3>Yield on Mystical Agriculture is free essence</h3>
+          <p>Outside crops gain the same traits, and Yield adds its bonus to every non-seed drop. An Inferium or resource crop at Very High Yield drops three extra essence per harvest. Low-tier seeds improve at 6% per ripening, top-tier ones at 1%.</p>
+        </li>
+        <li>
+          <h3>Grow fast seeds in planters, not soil</h3>
+          <p>In an AgriTech: Evolved planter a Very High Growth seed finishes in a quarter of the time and Yield still applies. In soil, Growth currently slows this mod's own crops. Seeds left in a planter also keep gaining traits.</p>
+        </li>
+        <li>
+          <h3>Medium Mutability makes the 50% crosses certain</h3>
+          <p>Beefsteak Tomato and Blue Jade Corn start at 50%. Two levels of Mutability on the target doubles that to a guaranteed result. The 40% corn crosses become certain at High. The 20% crosses top out at 60%.</p>
+        </li>
+        <li>
+          <h3>A Crop Duster bee finishes the job</h3>
+          <p>Its five-times multiplier turns every 20% cross into a certainty with no Mutability at all, and lifts the Pollen Sieve from 2% to 10% per visit.</p>
+        </li>
+        <li>
+          <h3>One cross per hive</h3>
+          <p>A hive picks one valid recipe at random per bee visit. Keep unrelated pairs more than four blocks from each other's hive and each hive spends every visit on the cross you want.</p>
+        </li>
+        <li>
+          <h3>Breed on one bed, produce on another</h3>
+          <p>Keep a small right-click bed for improving traits. Run production beds on controllers with a Stability upgrade so the output stacks. Move seeds from the first to the second when they are good enough.</p>
+        </li>
+        <li>
+          <h3>Three Time II and one Time I reach the speed cap</h3>
+          <p>That load brings the controller to one cycle a second. If you need a Stability upgrade in the fourth slot, three Time II alone still run a cycle every 2.4 seconds.</p>
+        </li>
+        <li>
+          <h3>Size the fish tank to the bed</h3>
+          <p>One fish pays for one bone meal on one crop per cycle. A bed at its fish cap, half the footprint, can fertilise about half its crops every cycle, which is far more than most crops need.</p>
+        </li>
+        <li>
+          <h3>Luffa is a renewable sponge</h3>
+          <p>Smoke Luffa into Dried Luffa and craft nine into a vanilla Sponge. Luffa is an expert-level farmer trade and grows on a fence post.</p>
+        </li>
+        <li>
+          <h3>Loot village farms in several biomes</h3>
+          <p>Plains plots draw from a list of fifteen crops, savanna, snowy and taiga plots from a list of ten, and desert plots can hold Eggplant, Lentils and Mustard. It is the cheapest way to skip the novice trade lottery.</p>
+        </li>
+        <li>
+          <h3>Compost the mushrooms last</h3>
+          <p>Mushrooms compost at 65%, crops and herbs at 50%, seeds at 30%. A mushroom thrown in a composter also has its one-in-five chance to sprout a new growth, so a ring of composters is a mushroom farm that feeds itself.</p>
+        </li>
+        <li>
+          <h3>The pack keeps crossbreeds out of the Seed Bag</h3>
+          <p>ATM11's one config change that touches this mod is in BBL Strainers. Its Seed Bag list has all 19 cross-only crops removed and leaves the villager-sold crops eligible. A Seed Bag can save you a trade. It will never save you a cross.</p>
+        </li>
+        <li>
+          <h3>Crates and seed bags are nine-to-one</h3>
+          <p>107 kinds of produce pack into crates and 51 kinds of seed into bags, both reversible. Strip traits first or the nine items will not match.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- K -->
+    <section class="sec" id="issues" style="--line:var(--l-slate)">
+      <header class="opener"><span class="bullet">K</span><h2>Known issues</h2></header>
+      <div class="prose">
+        <p>Open reports on the mod's tracker that affect ATM11 players, checked in October 2026. Follow the links for current status before assuming any of them still apply.</p>
+      </div>
+      <div class="tablewrap">
+        <table class="sign">
+          <caption>Upstream reports worth knowing about</caption>
+          <thead><tr><th scope="col">What happens</th><th scope="col">What to do</th><th scope="col">Report</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Higher Growth makes the mod's own crops ripen more slowly in soil.</th><td>Use planters for high-Growth seeds, or ignore Growth when selecting.</td><td><a href="https://github.com/JDKDigital/productivefarming/issues/35">Issue 35</a></td></tr>
+            <tr><th scope="row">Villagers who harvest a crop replant it with blank traits.</th><td>Keep trait beds away from farmer villagers.</td><td><a href="https://github.com/JDKDigital/productivefarming/issues/30">Issue 30</a></td></tr>
+            <tr><th scope="row">A mutated grape vine can give plain grapes on safe harvest.</th><td>Reported on the 1.21.1 line. If it happens, break the vine instead of right-clicking.</td><td><a href="https://github.com/JDKDigital/productivefarming/issues/24">Issue 24</a></td></tr>
+            <tr><th scope="row">The controller forms but does not harvest or replant.</th><td>Allow fake players in the chunk claim.</td><td><a href="https://github.com/JDKDigital/productivefarming/issues/22">Issue 22</a></td></tr>
+            <tr><th scope="row">Bucket-placed fish dying out while you are away.</th><td>Reported before 0.8.0, which made farm fish persistent. If it recurs, a spawner in the tank is the workaround players use.</td><td><a href="https://github.com/JDKDigital/productivefarming/issues/23">Issue 23</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <h3>Where this guide and the quest book part ways</h3>
+        <ul>
+          <li>Farm size: the book says 2 by 2 up to 10 by 10, the code says 3 by 3 up to a volume of 1024. See <a href="#autofarm">section E</a>.</li>
+          <li>Watering Trough: the book says faster babies, the code shortens adult breeding cooldown. See <a href="#animals">section F</a>.</li>
+          <li>Flowers from bone meal: off by default. See <a href="#flowers">section G</a>.</li>
+        </ul>
+        <p>Where they differ, trust what you see in your own world, and tell the mod author or the pack team which one was wrong.</p>
+      </div>
+    </section>
+
+    <!-- L -->
+    <section class="sec" id="credits" style="--line:var(--ink)">
+      <header class="opener"><span class="bullet bullet--ink">L</span><h2>Credits and sources</h2></header>
+      <div class="prose">
+        <p>This is an unofficial, fan-made reference. All credit for the mod and the pack belongs to the people who made them. Please download both from their official pages, which is how their authors are paid.</p>
+      </div>
+      <dl class="credits">
+        <div>
+          <dt>Productive Farming</dt>
+          <dd>Made by LobsterJonn (JDKDigital). All rights reserved by the author.
+            <a href="https://www.curseforge.com/minecraft/mc-mods/productivefarming">Download on CurseForge</a>
+            <a href="https://github.com/JDKDigital/productivefarming">Source code</a>
+            <a href="https://github.com/JDKDigital/productivefarming/issues">Issue tracker</a>
+          </dd>
+        </div>
+        <div>
+          <dt>All the Mods 11</dt>
+          <dd>Made by the ATM Team. Quest text quoted here in paraphrase is theirs.
+            <a href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-11">Download on CurseForge</a>
+            <a href="https://github.com/AllTheMods/ATM-11">Pack repository and issues</a>
+          </dd>
+        </div>
+        <div>
+          <dt>Companion mods named in this guide</dt>
+          <dd>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/productivebees">Productive Bees</a>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/productivetrees">Productive Trees</a>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/dyenamics">Dyenamics</a>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/mystical-agriculture">Mystical Agriculture</a>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/agritech-evolved">AgriTech: Evolved</a>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/croptopia">Croptopia</a>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/silent-gear">Silent Gear</a>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/opolis-strainers">BBL Strainers</a>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/jade">Jade</a>
+            <a href="https://www.curseforge.com/minecraft/mc-mods/jei">Just Enough Items</a>
+          </dd>
+        </div>
+        <div>
+          <dt>How the data was gathered</dt>
+          <dd>Names, trades, crosses, recipes and tags were read from <span class="n" data-meta="jar">productivefarming-26.1.2-0.12.1.jar</span>, the file pinned by ATM11 <span data-meta="packVersion">0.11.1-beta</span>. Mechanics and constants were read from the public source at branch dev-26.1. The pack's config and script folders were searched for anything that touches the mod: there is one quest chapter and one BBL Strainers setting, both described above. No textures, models or code from the mod are hosted here. Crop colour dots are averages computed from the item icons.</dd>
+        </div>
+        <div>
+          <dt>This site</dt>
+          <dd>Set in Overpass and Overpass Mono, both under the SIL Open Font License. Site code is MIT licensed.
+            <a href="https://github.com/TargetedEntropy/productive-farming-guide">Repository on GitHub</a>
+            <a href="https://github.com/TargetedEntropy/productive-farming-guide/issues">Report a mistake</a>
+          </dd>
+        </div>
+      </dl>
+      <p class="fine">Not affiliated with or endorsed by LobsterJonn, the ATM Team, CurseForge, Mojang or Microsoft. Minecraft is a trademark of Mojang AB.</p>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <p>Productive Farming field guide for All the Mods 11. Unofficial. Data from mod <span data-meta="modShort">0.12.1</span>, pack <span data-meta="packVersion">0.11.1-beta</span>.</p>
+  <p><a href="https://www.curseforge.com/minecraft/mc-mods/productivefarming">Get the mod</a> <a href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-11">Get the pack</a> <a href="#top">Back to top</a></p>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

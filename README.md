@@ -15,7 +15,7 @@ An unofficial, fan-made reference for the [Productive Farming](https://www.curse
 ## What is in the guide
 
 - **The crossbreeding network.** All 19 mutations drawn as a transit map. Pick a station to see the target crop, the pollen donor and the odds, with a calculator for the Mutability trait and the Crop Duster bee.
-- **Crop index.** 172 crops, searchable by name or Latin name and filterable by growth form and source, with villager trade level, price, planter output, food value and storage blocks.
+- **Crop index.** All 168 mod crops plus the 4 vanilla crops that gain traits, searchable by name or Latin name and filterable by growth form and source, with villager trade level, price, planter output, food value and storage blocks.
 - **Recipe finder.** 495 entries in one searchable list: crafting, smoking, crosses, farmer trades, AgriTech: Evolved planter outputs, crates and seed bags.
 - **How it works.** Crop forms, the four traits and their exact maths, bee pollination, the Farm Controller multiblock, fish farms and Nutrient Water, troughs, flowers and dye blending.
 - **Power-player points** and a list of **known upstream issues** with links.
@@ -40,7 +40,7 @@ This site hosts no part of the mod. Please get the real thing from its authors:
 | Just Enough Items | mezz | [CurseForge](https://www.curseforge.com/minecraft/mc-mods/jei) |
 | Overpass, Overpass Mono | The Overpass Project Authors | [SIL OFL 1.1](assets/fonts/OFL.txt) |
 
-Productive Farming is All Rights Reserved by its author. This repository contains none of its textures, models or code. It contains names and numbers (crop names, trade prices, recipe ingredients, chances) and one colour per crop, averaged from the item icon. Not affiliated with or endorsed by LobsterJonn, the ATM Team, CurseForge, Mojang or Microsoft.
+Productive Farming is All Rights Reserved by its author. This repository contains none of its textures, models or code. It contains names and numbers only (crop names, trade prices, recipe ingredients, chances); nothing is derived from the mod's artwork. Not affiliated with or endorsed by LobsterJonn, the ATM Team, CurseForge, Mojang or Microsoft.
 
 ## How the data was gathered
 

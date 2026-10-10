@@ -6,17 +6,14 @@ Reads an *unpacked* Productive Farming jar, a checkout of the mod's source
 colours) and an unpacked All the Mods 11 pack, then writes a single data file.
 
 Nothing from the mod is copied verbatim into the output except names and
-numbers: no textures, models or code. Swatch colours are averages computed
-from the item icons.
+numbers: no textures, models or code are read or copied.
 
 usage: build_data.py <unpacked-jar> <mod-source> <unpacked-pack> <out.js>
 """
 import json
 import os
 import re
-import struct
 import sys
-import zlib
 
 MOD = "productivefarming"
 
@@ -24,94 +21,6 @@ MOD = "productivefarming"
 def load(path):
     with open(path, encoding="utf-8") as fh:
         return json.load(fh)
-
-
-# --- tiny PNG reader (8-bit RGB / RGBA / palette), enough for item icons ----
-def png_pixels(path):
-    with open(path, "rb") as fh:
-        raw = fh.read()
-    if raw[:8] != b"\x89PNG\r\n\x1a\n":
-        return []
-    pos, idat, plte, trns = 8, b"", None, None
-    width = height = depth = ctype = 0
-    while pos < len(raw):
-        (length,) = struct.unpack(">I", raw[pos:pos + 4])
-        kind = raw[pos + 4:pos + 8]
-        body = raw[pos + 8:pos + 8 + length]
-        pos += 12 + length
-        if kind == b"IHDR":
-            width, height, depth, ctype, _, _, interlace = struct.unpack(">IIBBBBB", body)
-            if interlace:
-                return []
-        elif kind == b"PLTE":
-            plte = body
-        elif kind == b"tRNS":
-            trns = body
-        elif kind == b"IDAT":
-            idat += body
-    channels = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}.get(ctype)
-    if not channels or depth not in (1, 2, 4, 8):
-        return []
-    bpp = max(1, channels * depth // 8)
-    stride = (width * channels * depth + 7) // 8
-    data = zlib.decompress(idat)
-    rows, prev, p = [], bytearray(stride), 0
-    for _ in range(height):
-        ftype = data[p]
-        line = bytearray(data[p + 1:p + 1 + stride])
-        p += 1 + stride
-        for i in range(stride):
-            a = line[i - bpp] if i >= bpp else 0
-            b = prev[i]
-            c = prev[i - bpp] if i >= bpp else 0
-            if ftype == 1:
-                line[i] = (line[i] + a) & 255
-            elif ftype == 2:
-                line[i] = (line[i] + b) & 255
-            elif ftype == 3:
-                line[i] = (line[i] + ((a + b) >> 1)) & 255
-            elif ftype == 4:
-                pa, pb, pc = abs(b - c), abs(a - c), abs(a + b - 2 * c)
-                pred = a if (pa <= pb and pa <= pc) else (b if pb <= pc else c)
-                line[i] = (line[i] + pred) & 255
-        rows.append(line)
-        prev = line
-    out = []
-    for line in rows:
-        for x in range(width):
-            if ctype == 3:
-                if depth == 8:
-                    idx = line[x]
-                else:
-                    shift = 8 - depth - (x * depth) % 8
-                    idx = (line[(x * depth) // 8] >> shift) & ((1 << depth) - 1)
-                alpha = trns[idx] if trns and idx < len(trns) else 255
-                out.append((plte[idx * 3], plte[idx * 3 + 1], plte[idx * 3 + 2], alpha))
-            elif ctype == 2 and depth == 8:
-                out.append((line[x * 3], line[x * 3 + 1], line[x * 3 + 2], 255))
-            elif ctype == 6 and depth == 8:
-                out.append(tuple(line[x * 4:x * 4 + 4]))
-    return out
-
-
-def swatch(path):
-    """Saturation-weighted average colour of the opaque pixels, as #rrggbb."""
-    if not os.path.exists(path):
-        return None
-    total = [0.0, 0.0, 0.0]
-    weight = 0.0
-    for r, g, b, a in png_pixels(path):
-        if a < 128:
-            continue
-        hi, lo = max(r, g, b), min(r, g, b)
-        w = 0.15 + (hi - lo) / 255.0
-        total[0] += r * w
-        total[1] += g * w
-        total[2] += b * w
-        weight += w
-    if not weight:
-        return None
-    return "#%02x%02x%02x" % tuple(int(round(c / weight)) for c in total)
 
 
 # --- source parsing --------------------------------------------------------
@@ -187,7 +96,6 @@ def nearest_dye(hex_color, table):
 def main(jar, src, pack, out):
     lang = load(os.path.join(jar, "assets", MOD, "lang", "en_us.json"))
     data_dir = os.path.join(jar, "data", MOD)
-    tex = os.path.join(jar, "assets", MOD, "textures", "item")
     mods_toml = open(os.path.join(jar, "META-INF", "neoforge.mods.toml"), encoding="utf-8").read()
     version = re.search(r'version="([^"]+)"', mods_toml).group(1)
 
@@ -267,17 +175,12 @@ def main(jar, src, pack, out):
         if not vanilla and ("block.%s.%s" % (MOD, cid)) not in lang and ("item.%s.%s" % (MOD, cid)) not in lang:
             continue  # declared in source but not shipped
         plant = cid + "_seeds" if c["seed"] else cid
-        icon = None
-        for sub, fname in (("crops", cid), ("fruits", cid), ("shrooms", cid), ("fruits", cid + "_slice"), ("seeds", cid + "_seeds")):
-            icon = swatch(os.path.join(tex, sub, fname + ".png"))
-            if icon:
-                break
         entry = {
             "id": cid, "name": name_of(cid) if not vanilla else cid.title(),
             "latin": lang.get("tooltip.%s.%s.latin" % (MOD, cid), "") or None,
             "form": c["form"], "vanilla": vanilla,
             "plant": (name_of(plant) if not vanilla else None), "hasSeed": c["seed"],
-            "food": c["food"], "color": icon,
+            "food": c["food"],
             "trade": trades.get(plant), "mutated": cid in mutated,
             "planter": planter.get(cid), "crate": cid in crates, "bag": cid in bags,
             "fence": cid in fencepost, "stat": plant in stat_items or cid in stat_items,

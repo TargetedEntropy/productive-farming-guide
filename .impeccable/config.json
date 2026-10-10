@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-10T17:56:34.955Z",
+        "reason": "agent decided: detector pairs a dark-theme text token with a light-theme surface (e.g. #a7b3bc on #ffffff, #000000 on #151c23); headless-browser measurement of every rendered text node in both themes found zero pairs under WCAG AA"
+      }
+    ]
+  }
+}

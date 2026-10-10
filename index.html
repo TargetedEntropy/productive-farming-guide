@@ -69,9 +69,9 @@
       <h1>Productive Farming in All the Mods 11</h1>
       <p class="lede">Productive Farming adds <b data-count="crops">168</b> crops that carry four inheritable traits, <b data-count="mutations">19</b> crosses that bees make for you, <b data-count="flowers">35</b> dye-bearing flowers and a multiblock farm that harvests on its own. This guide reads its numbers from the shipped jar and the ATM11 pack files, and marks the places where the quest book and the code disagree.</p>
       <p class="hero__ways">
-        <a class="way" href="#crops">Look up a crop</a>
-        <a class="way" href="#recipes">Find a recipe</a>
-        <a class="way" href="#power">Skip to the power-player points</a>
+        <a class="way" href="#crops"><span class="bullet" style="--line:var(--l-teal)" aria-hidden="true">H</span>Look up a crop</a>
+        <a class="way" href="#recipes"><span class="bullet bullet--dark" style="--line:var(--l-amber)" aria-hidden="true">I</span>Find a recipe</a>
+        <a class="way" href="#power"><span class="bullet bullet--ink" aria-hidden="true">J</span>Power-player points</a>
       </p>
     </section>
 
@@ -81,8 +81,9 @@
         <p>Each line is a family of crosses in the order you unlock them. Pick a station to see what to plant, what to pollinate it with and the odds.</p>
       </figcaption>
       <div class="network__body">
+        <p class="network__cue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>The map is wider than this screen. Swipe it sideways.</p>
         <div class="network__scroll" tabindex="0" role="group" aria-label="Crossbreeding network map. Scrolls sideways on small screens.">
-          <svg id="network-map" viewBox="0 0 1200 660" role="img" aria-label="Transit-style map of the 19 crop mutations"></svg>
+          <svg id="network-map" viewBox="0 0 1200 692" role="img" aria-label="Transit-style map of the 19 crop mutations"></svg>
         </div>
         <aside class="board" id="board" aria-live="polite" aria-label="Selected station"></aside>
       </div>
@@ -90,7 +91,7 @@
         <li><svg viewBox="0 0 28 16" aria-hidden="true"><circle class="k-buy" cx="14" cy="8" r="5.5"/></svg>Sold by farmer villagers</li>
         <li><svg viewBox="0 0 28 16" aria-hidden="true"><circle class="k-mut" cx="14" cy="8" r="6.5"/><circle class="k-mut-in" cx="14" cy="8" r="2.5"/></svg>Mutation only</li>
         <li><svg viewBox="0 0 28 16" aria-hidden="true"><rect class="k-feed" x="9" y="3" width="10" height="10"/></svg>Vanilla pollen donor</li>
-        <li><svg viewBox="0 0 28 16" aria-hidden="true"><path class="k-link" d="M3 8h22"/></svg>Transfer: one line feeds another</li>
+        <li><svg viewBox="0 0 28 16" aria-hidden="true"><circle class="k-x" cx="14" cy="8" r="6.6"/><circle class="k-mut" cx="14" cy="8" r="3.6"/></svg>Interchange: one line feeds another</li>
       </ul>
       <noscript><p class="notice-inline">The map, crop index and recipe finder are drawn with JavaScript. The written sections below work without it.</p></noscript>
     </figure>
@@ -391,13 +392,13 @@
     <section class="sec" id="crops" style="--line:var(--l-teal)">
       <header class="opener"><span class="bullet">H</span><h2>Crop index</h2></header>
       <div class="prose">
-        <p>Every crop in the jar, with where it comes from and what a planter makes of it. Open a row for the rest.</p>
+        <p>All 168 crops in the jar, plus the four vanilla crops that gain traits, with where each comes from and what a planter makes of it. The mark beside a name matches the map: a ring is sold by farmers, a filled dot is cross only, a square is vanilla. Open a row for the rest.</p>
       </div>
       <form class="finder" id="crop-form" role="search" aria-label="Crop index">
         <label class="search">
           <span class="vh">Search crops by name or Latin name</span>
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg>
-          <input type="search" id="crop-q" placeholder="Search 172 crops, e.g. corn or Brassica" autocomplete="off" spellcheck="false">
+          <input type="search" id="crop-q" placeholder="Search crops, e.g. corn or Brassica" autocomplete="off" spellcheck="false">
         </label>
         <fieldset class="chips">
           <legend>Form</legend>
@@ -566,7 +567,7 @@
         </div>
         <div>
           <dt>How the data was gathered</dt>
-          <dd>Names, trades, crosses, recipes and tags were read from <span class="n" data-meta="jar">productivefarming-26.1.2-0.12.1.jar</span>, the file pinned by ATM11 <span data-meta="packVersion">0.11.1-beta</span>. Mechanics and constants were read from the public source at branch dev-26.1. The pack's config and script folders were searched for anything that touches the mod: there is one quest chapter and one BBL Strainers setting, both described above. No textures, models or code from the mod are hosted here. Crop colour dots are averages computed from the item icons.</dd>
+          <dd>Names, trades, crosses, recipes and tags were read from <span class="n" data-meta="jar">productivefarming-26.1.2-0.12.1.jar</span>, the file pinned by ATM11 <span data-meta="packVersion">0.11.1-beta</span>. Mechanics and constants were read from the public source at branch dev-26.1. The pack's config and script folders were searched for anything that touches the mod: there is one quest chapter and one BBL Strainers setting, both described above. No textures, models or code from the mod are hosted here, and nothing on this site is derived from its artwork.</dd>
         </div>
         <div>
           <dt>This site</dt>

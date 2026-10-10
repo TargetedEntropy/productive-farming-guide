@@ -310,7 +310,7 @@
       g.style.setProperty("--o", order);
       var say = cropName(id) + ". " + (recipes ? "Mutation, " + pct(recipes[0].chance) + " base chance." : (crop && crop.trade ? "Sold by " + LEVELS[crop.trade.level].toLowerCase() + " farmers." : "Vanilla pollen donor."));
       g.setAttribute("aria-label", say);
-      g.appendChild(svg("circle", { cx: x, cy: y, r: feeder ? 13 : 16, "class": "halo" }));
+      g.appendChild(svg("circle", { cx: x, cy: y, r: feeder ? 15 : 22, "class": "halo" }));
       g.appendChild(svg("circle", { cx: x, cy: y, r: 22, fill: "transparent" }));
       if (id === "sungold_tomato" || id === "golden_raspberry") g.appendChild(svg("circle", { cx: x, cy: y, r: 15.5, "class": "dot-x" }));
       if (feeder && (!crop || crop.vanilla)) {

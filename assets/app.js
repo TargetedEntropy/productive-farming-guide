@@ -221,9 +221,9 @@
       ["black_beauty_tomato", "roma", 530, 150, "Black Beauty", "right"],
       ["blue_beauty_tomato", "roma", 530, 200, "Blue Beauty", "right"],
       ["white_wonder_tomato", "roma", 530, 250, "White Wonder", "right"],
-      ["red_grape", "grape", 810, 615, "Red", "above"],
-      ["concord_grape", "grape", 970, 615, "Concord", "above"],
-      ["cotton_candy_grape", "grape", 1130, 615, "Cotton Candy", "above"],
+      ["red_grape", "grape", 170, 690, "Red", "above"],
+      ["concord_grape", "grape", 350, 690, "Concord", "above"],
+      ["cotton_candy_grape", "grape", 530, 690, "Cotton Candy", "above"],
       ["cherry_tomato", "cherry", 170, 330, "Cherry", "above"],
       ["chocolate_pear_tomato", "cherry", 350, 330, "Chocolate Pear", "above"],
       ["yellow_pear_tomato", "cherry", 530, 330, "Yellow Pear", "above"],
@@ -233,19 +233,19 @@
       ["miracle_berry", "berry", 890, 425, "Miracle Berry", "above"],
       ["yellow_bell_pepper", "pepper", 170, 545, "Yellow", "above"],
       ["orange_bell_pepper", "pepper", 350, 545, "Orange", "above"],
-      ["black_bell_pepper", "pepper", 530, 545, "Black", "below"],
+      ["black_bell_pepper", "pepper", 530, 545, "Black", "above"],
       ["purple_bell_pepper", "pepper", 710, 545, "Purple", "above"],
-      ["white_bell_pepper", "pepper", 530, 615, "White", "right"]
+      ["white_bell_pepper", "pepper", 530, 478, "White", "right"]
     ];
     // feeders: [id, line, x, y, label, into]
     var FEEDS = [
       ["cornflower", "corn", 350, 120, "Cornflower", "blue_jade_corn"],
       ["potato", "roma", 350, 250, "Potato", "beefsteak_tomato"],
       ["beetroot", "cherry", 350, 380, "Beetroot", "chocolate_pear_tomato"],
-      ["green_grape", "grape", 970, 665, "Green Grape", "concord_grape"],
+      ["green_grape", "grape", 350, 740, "Green Grape", "concord_grape"],
       ["goji_berry", "berry", 890, 475, "Goji Berry", "miracle_berry"],
       ["red_bell_pepper", "pepper", 350, 597, "Red", "orange_bell_pepper"],
-      ["green_bell_pepper", "pepper", 530, 493, "Green", "black_bell_pepper"]
+      ["green_bell_pepper", "pepper", 530, 597, "Green", "black_bell_pepper"]
     ];
     // [line, path, from station, to station]
     var ROUTES = [
@@ -259,11 +259,11 @@
       ["berry", "M530 425H710", "raspberry", "golden_raspberry"], ["berry", "M710 425H890", "golden_raspberry", "miracle_berry"],
       ["pepper", "M170 545H350", "yellow_bell_pepper", "orange_bell_pepper"], ["pepper", "M350 545H530", "orange_bell_pepper", "black_bell_pepper"],
       ["pepper", "M530 545H710", "black_bell_pepper", "purple_bell_pepper"],
-      ["pepper", "M350 545H420L490 615H530", "orange_bell_pepper", "white_bell_pepper"],
-      ["grape", "M810 615H970", "red_grape", "concord_grape"], ["grape", "M970 615H1130", "concord_grape", "cotton_candy_grape"]
+      ["pepper", "M350 545H420L487 478H530", "orange_bell_pepper", "white_bell_pepper"],
+      ["grape", "M170 690H350", "red_grape", "concord_grape"], ["grape", "M350 690H530", "concord_grape", "cotton_candy_grape"]
     ];
     var LINE_ORDER = ["corn", "roma", "cherry", "berry", "pepper", "grape"];
-    var TAGS = [["corn", 26, 70, "CORN"], ["roma", 26, 200, "ROMA"], ["grape", 706, 615, "GRAPE"], ["cherry", 26, 330, "CHERRY"],
+    var TAGS = [["corn", 26, 70, "CORN"], ["roma", 26, 200, "ROMA"], ["grape", 26, 690, "GRAPE"], ["cherry", 26, 330, "CHERRY"],
       ["berry", 404, 425, "BERRY"], ["pepper", 26, 545, "PEPPER"]];
 
     var stopById = {};
@@ -393,7 +393,7 @@
         });
         html += '</div></div><label class="check"><input type="checkbox" id="duster"' + (state.duster ? " checked" : "") + "> Crop Duster bee</label></div>";
         html += '<div class="meter" style="--c:' + line.c + '"><div class="meter__val">' + pct(chance) +
-          "<small>" + (chance >= 1 ? "Certain on the next attempt" : "About " + Math.ceil(1 / chance) + " attempts on average") +
+          "<small>" + (chance >= 1 ? "Certain on the next attempt" : "About " + (1 / chance).toFixed(1).replace(/\.0$/, "") + " attempts on average") +
           (siblings > 1 ? ". Each attempt first picks one of " + siblings + " outcomes" : "") + ".</small></div>" +
           '<div class="meter__track" role="img" aria-label="Chance per attempt ' + pct(chance) + '"><div class="meter__fill" style="--w:' + (chance * 100) + '%"></div></div></div>';
         var route = chain(id).map(function (x) { return x === id ? "<b>" + esc(cropName(x)) + "</b>" : esc(cropName(x)); });

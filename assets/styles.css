@@ -318,7 +318,7 @@ h1 {
 .m-stop.m-dim .dot-feed, .m-stop.m-dim .dot-x { stroke: var(--l-slate); }
 .m-tag.m-dim .m-line-bg { fill: var(--l-slate); }
 .m-tag.m-dim .m-line { fill: var(--on-line) !important; }
-.m-route, .m-feed, .m-link { transition: stroke 0.3s var(--ease), stroke-width 0.3s var(--ease); }
+.m-route, .m-feed, .m-link { transition: stroke 0.3s var(--ease); }
 
 @media (prefers-reduced-motion: no-preference) {
   .network.is-drawing .m-route { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: draw 1.4s var(--ease) forwards; animation-delay: calc(var(--i) * 0.12s); }
@@ -348,7 +348,7 @@ h1 {
 .meter__track { height: 0.9rem; border: 2px solid var(--ink); background: var(--paper); }
 .meter__fill { height: 100%; background: var(--c); width: var(--w); }
 .meter__val { font: 700 1.5rem/1 var(--mono); }
-.meter__val small { font: 500 0.8rem/1.3 var(--sans); color: var(--ink-2); display: block; margin-top: 0.3rem; }
+.meter__val small { font: 500 0.8rem/1.4 var(--sans); color: var(--ink-2); display: block; margin-top: 0.3rem; }
 .stepper { display: grid; gap: 0.35rem; }
 .stepper__label { font-size: 0.86rem; color: var(--ink-2); }
 .seg { display: flex; border: 2px solid var(--ink); }
@@ -511,7 +511,7 @@ select {
 }
 .blend__out { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.5rem; position: relative; }
 .blend__out::before { content: ""; position: absolute; left: 10%; right: 10%; top: 1.25rem; height: 6px; margin-top: -3px; background: var(--ink); border-radius: 3px; }
-.blend__out li { display: grid; justify-items: center; gap: 0.35rem; text-align: center; font-size: 0.82rem; line-height: 1.25; position: relative; }
+.blend__out li { display: grid; justify-items: center; gap: 0.35rem; text-align: center; font-size: 0.82rem; line-height: 1.35; position: relative; }
 .disc { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--c); border: 3px solid var(--ink); }
 .blend__out .mono { color: var(--ink-2); font-size: 0.74rem; }
 
@@ -523,7 +523,7 @@ select {
 .flowers li { display: grid; grid-template-columns: auto 1fr; gap: 0.1rem 0.75rem; align-items: center; padding: 0.65rem 0.5rem 0.6rem 0; border-bottom: 1px solid var(--rule); }
 .flowers .disc { width: 2rem; height: 2rem; grid-row: span 2; border-width: 2.5px; }
 .flowers b { font-weight: 800; line-height: 1.2; }
-.flowers span { font-size: 0.84rem; color: var(--ink-2); line-height: 1.3; }
+.flowers span { font-size: 0.84rem; color: var(--ink-2); line-height: 1.36; }
 
 /* Finders */
 .finder { display: grid; gap: 0.9rem; max-width: 68rem; position: sticky; top: var(--bar-h); z-index: 5; background: var(--paper); padding: 0.75rem 0 0.6rem; border-bottom: 2px solid var(--ink); }
@@ -567,7 +567,7 @@ select {
 .mk-feed { fill: var(--panel); stroke: var(--ink); stroke-width: 2.6; }
 .index .nm { font-weight: 800; line-height: 1.2; }
 .index .lat { display: block; font-weight: 400; font-style: italic; font-size: 0.84rem; color: var(--ink-2); }
-.index .col { font-size: 0.92rem; line-height: 1.3; }
+.index .col { font-size: 0.92rem; line-height: 1.36; }
 .index .col small { display: block; color: var(--ink-2); font-size: 0.8rem; }
 .index details { border-block: 2px solid transparent; }
 .index details[open] { border-block-color: var(--ink); }
@@ -586,7 +586,7 @@ select {
 .recipes .rd { font-size: 0.94rem; color: var(--ink-2); margin-top: 0.15rem; }
 .recipes .rd b { color: var(--ink); font-weight: 600; }
 .grid3 { display: inline-grid; grid-template-columns: repeat(var(--cols), 5.6rem); gap: 2px; margin-top: 0.5rem; }
-.grid3 span { min-height: 3rem; display: grid; place-items: center; text-align: center; padding: 0.2rem; border: 1.5px solid var(--ink); background: var(--panel); font-size: 0.72rem; font-weight: 600; line-height: 1.15; color: var(--ink); }
+.grid3 span { min-height: 3rem; display: grid; place-items: center; text-align: center; padding: 0.2rem; border: 1.5px solid var(--ink); background: var(--panel); font-size: 0.72rem; font-weight: 600; line-height: 1.36; color: var(--ink); }
 .grid3 span.blank { border-style: dashed; border-color: var(--rule); background: transparent; }
 .btn { min-height: 2.75rem; padding: 0.16em 1.3rem 0; border: 2px solid var(--ink); border-radius: 1.4rem; background: var(--ink); color: var(--paper); font: 700 0.98rem/1 var(--sans); cursor: pointer; }
 .btn:hover { background: var(--l-amber); border-color: var(--l-amber); color: var(--on-amber); }

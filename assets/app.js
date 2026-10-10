@@ -310,7 +310,7 @@
       g.style.setProperty("--o", order);
       var say = cropName(id) + ". " + (recipes ? "Mutation, " + pct(recipes[0].chance) + " base chance." : (crop && crop.trade ? "Sold by " + LEVELS[crop.trade.level].toLowerCase() + " farmers." : "Vanilla pollen donor."));
       g.setAttribute("aria-label", say);
-      g.appendChild(svg("circle", { cx: x, cy: y, r: feeder ? 15 : 22, "class": "halo" }));
+      g.appendChild(svg("circle", { cx: x, cy: y, r: feeder ? 13 : 20, "class": "halo" }));
       g.appendChild(svg("circle", { cx: x, cy: y, r: 22, fill: "transparent" }));
       if (id === "sungold_tomato" || id === "golden_raspberry") g.appendChild(svg("circle", { cx: x, cy: y, r: 15.5, "class": "dot-x" }));
       if (feeder && (!crop || crop.vanilla)) {
@@ -323,18 +323,18 @@
       }
       var chance = recipes ? pct(recipes[0].chance) : "";
       if (feeder) {
-        g.appendChild(svg("text", { x: x + 16, y: y + 5, "class": "m-feedname", text: label }));
+        g.appendChild(svg("text", { x: x + 21, y: y + 5, "class": "m-feedname", text: label }));
       } else if (s[5] === "right") {
-        var t = svg("text", { x: x + 20, y: y + 5, "class": "m-name" });
+        var t = svg("text", { x: x + 29, y: y + 6, "class": "m-name" });
         t.appendChild(svg("tspan", { text: label }));
         if (chance) t.appendChild(svg("tspan", { dx: 8, "class": "m-chance", text: chance }));
         g.appendChild(t);
       } else if (s[5] === "below") {
-        g.appendChild(svg("text", { x: x, y: y + 34, "text-anchor": "middle", "class": "m-name", text: label }));
-        if (chance) g.appendChild(svg("text", { x: x + 16, y: y - 12, "class": "m-chance", text: chance }));
+        g.appendChild(svg("text", { x: x, y: y + 42, "text-anchor": "middle", "class": "m-name", text: label }));
+        if (chance) g.appendChild(svg("text", { x: x + 26, y: y - 16, "class": "m-chance", text: chance }));
       } else {
-        g.appendChild(svg("text", { x: x, y: y - 22, "text-anchor": "middle", "class": "m-name", text: label }));
-        if (chance) g.appendChild(svg("text", { x: x + 15, y: y + 25, "class": "m-chance", text: chance }));
+        g.appendChild(svg("text", { x: x, y: y - 29, "text-anchor": "middle", "class": "m-name", text: label }));
+        if (chance) g.appendChild(svg("text", { x: x + 24, y: y + 30, "class": "m-chance", text: chance }));
       }
       gStops.appendChild(g);
     }

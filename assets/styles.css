@@ -303,12 +303,12 @@ h1 {
 .m-stop .dot-in { fill: var(--panel); }
 .m-stop .dot-feed { fill: var(--panel); stroke: var(--ink); stroke-width: 3; }
 .m-stop .dot-x { fill: var(--panel); stroke: var(--ink); stroke-width: 3; }
-.m-stop .halo { fill: none; stroke: var(--c); stroke-width: 5; opacity: 0; transition: opacity 0.2s var(--ease); }
+.m-stop .halo { fill: none; stroke: var(--c); stroke-width: 4; opacity: 0; transition: opacity 0.2s var(--ease); }
 .m-stop:hover .halo { opacity: 1; stroke-width: 2; }
 .m-stop[aria-pressed="true"] .halo { opacity: 1; }
-.m-stop:focus-visible { outline: none; }
-.m-stop[aria-pressed="true"] .halo { stroke-width: 5; }
-.m-stop:focus-visible .halo { opacity: 1; stroke: var(--l-blue); stroke-width: 5; }
+.m-stop, .m-stop:focus, .m-stop:focus-visible { outline: none; }
+.m-stop[aria-pressed="true"] .halo { stroke-width: 4; }
+.m-stop:focus-visible .halo { opacity: 1; stroke: var(--l-blue); stroke-width: 4; }
 .m-stop[aria-pressed="true"] .m-name { text-decoration: underline; text-decoration-thickness: 2px; }
 .m-route.m-dim, .m-feed.m-dim { stroke: var(--rule); }
 .m-route.m-dim { stroke-width: 5; }

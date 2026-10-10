@@ -1,0 +1,694 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-10T18:10:07Z",
+  "title": "Design System: Productive Farming field guide",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Map Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0a1433",
+          "#ffffff"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0f1c44",
+          "#ffffff"
+        ]
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Map Ink",
+        "canonical": "#11161b",
+        "tonalRamp": [
+          "#11161b",
+          "#f1f4fb"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Second Ink",
+        "canonical": "#45505a",
+        "tonalRamp": [
+          "#45505a",
+          "#b3bfdb"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#c9d0cb",
+        "tonalRamp": [
+          "#2b3a6b",
+          "#c9d0cb"
+        ]
+      },
+      "sign": {
+        "role": "neutral",
+        "displayName": "Sign",
+        "canonical": "#11161b",
+        "tonalRamp": [
+          "#050b1f",
+          "#11161b"
+        ]
+      },
+      "on-sign": {
+        "role": "neutral",
+        "displayName": "On Sign",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#f1f4fb",
+          "#ffffff"
+        ]
+      },
+      "on-line": {
+        "role": "neutral",
+        "displayName": "On Line",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0a1433",
+          "#ffffff"
+        ]
+      },
+      "on-amber": {
+        "role": "neutral",
+        "displayName": "On Amber",
+        "canonical": "#11161b",
+        "tonalRamp": [
+          "#11161b",
+          "#0a1433"
+        ]
+      },
+      "line-green": {
+        "role": "secondary",
+        "displayName": "Line Green",
+        "canonical": "#15803d",
+        "tonalRamp": [
+          "#15803d",
+          "#34b96f"
+        ]
+      },
+      "line-brown": {
+        "role": "secondary",
+        "displayName": "Line Brown",
+        "canonical": "#8a5425",
+        "tonalRamp": [
+          "#8a5425",
+          "#c98f58"
+        ]
+      },
+      "line-purple": {
+        "role": "secondary",
+        "displayName": "Line Purple",
+        "canonical": "#7038b3",
+        "tonalRamp": [
+          "#7038b3",
+          "#ab82ea"
+        ]
+      },
+      "line-red": {
+        "role": "secondary",
+        "displayName": "Line Red",
+        "canonical": "#cc2f27",
+        "tonalRamp": [
+          "#cc2f27",
+          "#f2635a"
+        ]
+      },
+      "line-blue": {
+        "role": "primary",
+        "displayName": "Signal Blue",
+        "canonical": "#1767c2",
+        "tonalRamp": [
+          "#1767c2",
+          "#58a6f5"
+        ]
+      },
+      "line-orange": {
+        "role": "secondary",
+        "displayName": "Line Orange",
+        "canonical": "#c2570a",
+        "tonalRamp": [
+          "#c2570a",
+          "#f58f35"
+        ]
+      },
+      "line-magenta": {
+        "role": "secondary",
+        "displayName": "Line Magenta",
+        "canonical": "#bd2674",
+        "tonalRamp": [
+          "#bd2674",
+          "#ee69a9"
+        ]
+      },
+      "line-teal": {
+        "role": "secondary",
+        "displayName": "Line Teal",
+        "canonical": "#0a7c7c",
+        "tonalRamp": [
+          "#0a7c7c",
+          "#33b8b8"
+        ]
+      },
+      "line-amber": {
+        "role": "secondary",
+        "displayName": "Line Amber",
+        "canonical": "#e2a400",
+        "tonalRamp": [
+          "#e2a400",
+          "#f3c033"
+        ]
+      },
+      "line-slate": {
+        "role": "secondary",
+        "displayName": "Line Slate",
+        "canonical": "#56626c",
+        "tonalRamp": [
+          "#56626c",
+          "#8f9cbd"
+        ]
+      },
+      "night-paper": {
+        "role": "neutral",
+        "displayName": "Map Paper (night map)",
+        "canonical": "#0a1433",
+        "tonalRamp": [
+          "#0a1433",
+          "#ffffff"
+        ]
+      },
+      "night-panel": {
+        "role": "neutral",
+        "displayName": "Panel (night map)",
+        "canonical": "#0f1c44",
+        "tonalRamp": [
+          "#0f1c44",
+          "#ffffff"
+        ]
+      },
+      "night-ink": {
+        "role": "primary",
+        "displayName": "Map Ink (night map)",
+        "canonical": "#f1f4fb",
+        "tonalRamp": [
+          "#11161b",
+          "#f1f4fb"
+        ]
+      },
+      "night-ink-2": {
+        "role": "neutral",
+        "displayName": "Second Ink (night map)",
+        "canonical": "#b3bfdb",
+        "tonalRamp": [
+          "#45505a",
+          "#b3bfdb"
+        ]
+      },
+      "night-rule": {
+        "role": "neutral",
+        "displayName": "Rule (night map)",
+        "canonical": "#2b3a6b",
+        "tonalRamp": [
+          "#2b3a6b",
+          "#c9d0cb"
+        ]
+      },
+      "night-sign": {
+        "role": "neutral",
+        "displayName": "Sign (night map)",
+        "canonical": "#050b1f",
+        "tonalRamp": [
+          "#050b1f",
+          "#11161b"
+        ]
+      },
+      "night-on-sign": {
+        "role": "neutral",
+        "displayName": "On Sign (night map)",
+        "canonical": "#f1f4fb",
+        "tonalRamp": [
+          "#f1f4fb",
+          "#ffffff"
+        ]
+      },
+      "night-on-line": {
+        "role": "neutral",
+        "displayName": "On Line (night map)",
+        "canonical": "#0a1433",
+        "tonalRamp": [
+          "#0a1433",
+          "#ffffff"
+        ]
+      },
+      "night-on-amber": {
+        "role": "neutral",
+        "displayName": "On Amber (night map)",
+        "canonical": "#0a1433",
+        "tonalRamp": [
+          "#11161b",
+          "#0a1433"
+        ]
+      },
+      "night-line-green": {
+        "role": "secondary",
+        "displayName": "Line Green (night map)",
+        "canonical": "#34b96f",
+        "tonalRamp": [
+          "#15803d",
+          "#34b96f"
+        ]
+      },
+      "night-line-brown": {
+        "role": "secondary",
+        "displayName": "Line Brown (night map)",
+        "canonical": "#c98f58",
+        "tonalRamp": [
+          "#8a5425",
+          "#c98f58"
+        ]
+      },
+      "night-line-purple": {
+        "role": "secondary",
+        "displayName": "Line Purple (night map)",
+        "canonical": "#ab82ea",
+        "tonalRamp": [
+          "#7038b3",
+          "#ab82ea"
+        ]
+      },
+      "night-line-red": {
+        "role": "secondary",
+        "displayName": "Line Red (night map)",
+        "canonical": "#f2635a",
+        "tonalRamp": [
+          "#cc2f27",
+          "#f2635a"
+        ]
+      },
+      "night-line-blue": {
+        "role": "primary",
+        "displayName": "Signal Blue (night map)",
+        "canonical": "#58a6f5",
+        "tonalRamp": [
+          "#1767c2",
+          "#58a6f5"
+        ]
+      },
+      "night-line-orange": {
+        "role": "secondary",
+        "displayName": "Line Orange (night map)",
+        "canonical": "#f58f35",
+        "tonalRamp": [
+          "#c2570a",
+          "#f58f35"
+        ]
+      },
+      "night-line-magenta": {
+        "role": "secondary",
+        "displayName": "Line Magenta (night map)",
+        "canonical": "#ee69a9",
+        "tonalRamp": [
+          "#bd2674",
+          "#ee69a9"
+        ]
+      },
+      "night-line-teal": {
+        "role": "secondary",
+        "displayName": "Line Teal (night map)",
+        "canonical": "#33b8b8",
+        "tonalRamp": [
+          "#0a7c7c",
+          "#33b8b8"
+        ]
+      },
+      "night-line-amber": {
+        "role": "secondary",
+        "displayName": "Line Amber (night map)",
+        "canonical": "#f3c033",
+        "tonalRamp": [
+          "#e2a400",
+          "#f3c033"
+        ]
+      },
+      "night-line-slate": {
+        "role": "secondary",
+        "displayName": "Line Slate (night map)",
+        "canonical": "#8f9cbd",
+        "tonalRamp": [
+          "#56626c",
+          "#8f9cbd"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The page title only, held to 16ch."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles beside their lettered bullet, and the map title."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sub-headings in prose and panel headings."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The opening paragraph, 62ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Prose at 68ch, ss01 and kerning on."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Captions, legends, status lines and fine print, usually in Second Ink."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Way links and the primary button."
+      },
+      "control-compact": {
+        "displayName": "Control, compact",
+        "purpose": "Chips, tools and segments."
+      },
+      "numeric": {
+        "displayName": "Numeric",
+        "purpose": "Inline quantities, number columns, IDs and hex values in Overpass Mono with tabular figures."
+      },
+      "plate": {
+        "displayName": "Plate",
+        "purpose": "Version plates in the signage bar."
+      },
+      "tag": {
+        "displayName": "Tag",
+        "purpose": "Uppercase tracked plates: map line tags and the recipe kind plate. Nowhere else."
+      }
+    },
+    "shadows": [
+      {
+        "name": "knockout-ring-rail",
+        "value": "0 0 0 3px var(--paper)",
+        "purpose": "Paper keyline around a rail bullet so the rail line stops short of it. Zero offset, zero blur. Not elevation."
+      },
+      {
+        "name": "knockout-ring-way",
+        "value": "0 0 0 2px var(--paper)",
+        "purpose": "The same keyline on a bullet inside a way-forward pill."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The one easing curve, used for every transition and animation."
+      },
+      {
+        "name": "control-swap",
+        "value": "background-color 0.15s, color 0.15s",
+        "purpose": "Fill and type inversion on tools, way links and chips."
+      },
+      {
+        "name": "halo",
+        "value": "opacity 0.2s",
+        "purpose": "Station halo appearing on hover, selection and focus."
+      },
+      {
+        "name": "current-stop",
+        "value": "transform 0.25s (scale 1.22)",
+        "purpose": "The rail bullet of the section in view."
+      },
+      {
+        "name": "route-recolour",
+        "value": "stroke 0.3s",
+        "purpose": "Routes, feeders and connectors moving to and from the receded state."
+      },
+      {
+        "name": "draw",
+        "value": "stroke-dashoffset 1.4s, delay 0.12s per line",
+        "purpose": "Routes drawing along their length on load. Only under prefers-reduced-motion: no-preference."
+      },
+      {
+        "name": "arrive",
+        "value": "opacity 0.5s, delay 0.35s + 0.07s per stop",
+        "purpose": "Stations appearing after their route on load. Only under no-preference."
+      },
+      {
+        "name": "reduced",
+        "value": "0.01ms durations, no delays, scroll-behavior auto",
+        "purpose": "Everything collapses under prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "board-two-up",
+        "value": "80rem"
+      },
+      {
+        "name": "rail-drawer",
+        "value": "62rem"
+      },
+      {
+        "name": "compact",
+        "value": "44rem"
+      },
+      {
+        "name": "map-min-width",
+        "value": "46rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Signage bar",
+      "kind": "nav",
+      "refersTo": "signage-bar",
+      "description": "Sticky top bar: PF roundel, guide title, mono version plates and outlined tool pills that invert on hover.",
+      "html": "<header class=\"ds-bar\"><a class=\"ds-bar-home\" href=\"#\"><span class=\"ds-roundel\">PF</span><span class=\"ds-bar-title\">Productive Farming <span>field guide</span></span></a><p class=\"ds-plate\"><span>Mod <b>0.12.1</b></span><span>ATM11 <b>0.11.1-beta</b></span></p><button class=\"ds-tool\" type=\"button\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"7\"/><path class=\"ds-fill\" d=\"M12 5a7 7 0 0 1 0 14z\"/></svg><span>Night map</span></button></header>",
+      "css": ".ds-bar { display: flex; align-items: center; gap: 1.5rem; height: 3.5rem; padding: 0 1.25rem; background: var(--sign); color: var(--on-sign); border-bottom: 1px solid var(--rule); font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; } .ds-bar-home { display: flex; align-items: center; gap: 0.7rem; color: inherit; text-decoration: none; } .ds-bar-title { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; white-space: nowrap; } .ds-bar-title span { font-weight: 400; } .ds-roundel { display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--l-green); color: var(--on-line); font-weight: 800; font-size: 0.86rem; line-height: 1; padding-top: 0.12em; } .ds-plate { display: flex; gap: 0.4rem; margin: 0 0 0 auto; font-family: 'Overpass Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace; font-weight: 500; font-size: 0.78rem; line-height: 1; white-space: nowrap; } .ds-plate span { border: 1px solid var(--on-sign); padding: 0.42rem 0.55rem 0.34rem; } .ds-plate b { font-weight: 700; } .ds-tool { display: inline-flex; align-items: center; gap: 0.45rem; height: 2.2rem; padding: 0.12em 0.8rem 0; border: 1.5px solid var(--on-sign); border-radius: 1.1rem; background: transparent; color: var(--on-sign); font: 700 0.82rem/1 'Overpass', 'Helvetica Neue', Arial, sans-serif; cursor: pointer; transition: background-color 0.15s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s cubic-bezier(0.16, 1, 0.3, 1); } .ds-tool:hover { background: var(--on-sign); color: var(--sign); } .ds-tool:focus-visible, .ds-bar-home:focus-visible { outline: 3px solid var(--l-amber); outline-offset: 3px; } .ds-tool svg { width: 1.05rem; height: 1.05rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; margin-top: -0.12em; } .ds-tool .ds-fill { fill: currentColor; stroke: none; }"
+    },
+    {
+      "name": "Rail",
+      "kind": "nav",
+      "refersTo": "bullet",
+      "description": "Sections as lettered stops on one vertical ink line. The current stop is heavier and its bullet scales up.",
+      "html": "<nav class=\"ds-rail\"><ol><li><a href=\"#\" style=\"--line:var(--l-green)\"><span class=\"ds-rail-bullet\">A</span>Start here</a></li><li><a href=\"#\" aria-current=\"true\" style=\"--line:var(--l-red)\"><span class=\"ds-rail-bullet\">D</span>Crossbreeding</a></li><li><a href=\"#\" style=\"--line:var(--l-amber)\"><span class=\"ds-rail-bullet ds-rail-bullet--dark\">I</span>Recipe finder</a></li><li><a href=\"#\" style=\"--line:var(--ink)\"><span class=\"ds-rail-bullet ds-rail-bullet--ink\">J</span>Power-player points</a></li></ol></nav>",
+      "css": ".ds-rail { font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; color: var(--ink); background: var(--paper); padding: 0.5rem; } .ds-rail ol { list-style: none; margin: 0; padding: 0; position: relative; } .ds-rail ol::before { content: ''; position: absolute; left: calc(0.8rem - 2px); top: 0.9rem; bottom: 0.9rem; width: 4px; background: var(--ink); border-radius: 2px; } .ds-rail a { position: relative; display: flex; align-items: center; gap: 0.7rem; padding: 0.3rem 0.5rem 0.3rem 0; color: inherit; font-weight: 500; font-size: 0.95rem; line-height: 1.2; text-decoration: none; } .ds-rail a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--line); text-underline-offset: 0.2em; } .ds-rail a:focus-visible { outline: 3px solid var(--l-blue); outline-offset: 3px; border-radius: 2px; } .ds-rail a[aria-current='true'] { font-weight: 800; } .ds-rail-bullet { flex: none; display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--line); color: var(--on-line); font-weight: 800; font-size: 0.82rem; line-height: 1; padding-top: 0.14em; position: relative; box-shadow: 0 0 0 3px var(--paper); transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-rail-bullet--dark { color: var(--on-amber); } .ds-rail-bullet--ink { background: var(--ink); color: var(--paper); } .ds-rail a[aria-current='true'] .ds-rail-bullet { transform: scale(1.22); }"
+    },
+    {
+      "name": "Section opener",
+      "kind": "custom",
+      "refersTo": "bullet-opener",
+      "description": "Lettered bullet and headline over a 6px line in the section colour that starts at a small station dot.",
+      "html": "<header class=\"ds-opener\" style=\"--line:var(--l-blue)\"><span class=\"ds-opener-bullet\">E</span><h2>Auto-farm</h2></header>",
+      "css": ".ds-opener { display: flex; align-items: center; gap: 0.85rem; padding-bottom: 0.9rem; position: relative; font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; color: var(--ink); } .ds-opener::after { content: ''; position: absolute; left: 1.15rem; right: 0; bottom: 0; height: 6px; border-radius: 3px; background: var(--line); } .ds-opener::before { content: ''; position: absolute; left: 0.55rem; bottom: -5px; z-index: 1; width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; background: var(--paper); border: 4px solid var(--line); } .ds-opener-bullet { flex: none; display: inline-grid; place-items: center; width: 2.3rem; height: 2.3rem; border-radius: 50%; background: var(--line); color: var(--on-line); font-weight: 800; font-size: 1.15rem; line-height: 1; padding-top: 0.14em; } .ds-opener h2 { margin: 0; font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; }"
+    },
+    {
+      "name": "Way link and primary button",
+      "kind": "button",
+      "refersTo": "way",
+      "description": "Outlined pill with a section bullet for way-forward links; solid ink pill for show-all actions, amber on hover.",
+      "html": "<p class=\"ds-ways\"><a class=\"ds-way\" href=\"#\"><span class=\"ds-way-bullet\" style=\"--line:var(--l-teal)\">H</span>Look up a crop</a><button class=\"ds-btn\" type=\"button\">Show all 172 crops</button></p>",
+      "css": ".ds-ways { display: flex; flex-wrap: wrap; gap: 0.6rem 0.7rem; margin: 0; font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; } .ds-way { display: inline-flex; align-items: center; gap: 0.55rem; min-height: 2.75rem; padding: 0 1.1rem 0 0.55rem; border: 2px solid var(--ink); border-radius: 1.4rem; color: var(--ink); font-weight: 700; font-size: 0.98rem; text-decoration: none; transition: background-color 0.15s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s cubic-bezier(0.16, 1, 0.3, 1); } .ds-way:hover { background: var(--ink); color: var(--paper); } .ds-way-bullet { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--line); color: var(--on-line); font-weight: 800; font-size: 0.82rem; line-height: 1; padding-top: 0.14em; box-shadow: 0 0 0 2px var(--paper); } .ds-btn { min-height: 2.75rem; padding: 0.16em 1.3rem 0; border: 2px solid var(--ink); border-radius: 1.4rem; background: var(--ink); color: var(--paper); font: 700 0.98rem/1 'Overpass', 'Helvetica Neue', Arial, sans-serif; cursor: pointer; } .ds-btn:hover { background: var(--l-amber); border-color: var(--l-amber); color: var(--on-amber); } .ds-way:focus-visible, .ds-btn:focus-visible { outline: 3px solid var(--l-blue); outline-offset: 3px; }"
+    },
+    {
+      "name": "Filter chips",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Single-choice outlined pills with a mono count. Hover fills Rule; selected fills ink.",
+      "html": "<fieldset class=\"ds-chips\"><legend>Source</legend><div><button type=\"button\" class=\"ds-chip\" aria-pressed=\"true\">All</button><button type=\"button\" class=\"ds-chip\" aria-pressed=\"false\">Novice <span>97</span></button><button type=\"button\" class=\"ds-chip\" aria-pressed=\"false\">Cross only <span>19</span></button></div></fieldset>",
+      "css": ".ds-chips { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.75rem; font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; } .ds-chips legend { float: left; padding: 0; width: 3.6rem; margin-top: 0.55rem; font-size: 0.875rem; color: var(--ink-2); } .ds-chips > div { display: flex; flex-wrap: wrap; gap: 0.4rem; } .ds-chip { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.25rem; padding: 0.14em 0.8rem 0; border: 1.5px solid var(--ink); border-radius: 1.2rem; background: transparent; color: var(--ink); font: 600 0.88rem/1 'Overpass', 'Helvetica Neue', Arial, sans-serif; cursor: pointer; transition: background-color 0.15s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s cubic-bezier(0.16, 1, 0.3, 1); } .ds-chip:hover { background: var(--rule); } .ds-chip[aria-pressed='true'] { background: var(--ink); color: var(--paper); } .ds-chip:focus-visible { outline: 3px solid var(--l-blue); outline-offset: 3px; } .ds-chip span { font-family: 'Overpass Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace; font-variant-numeric: tabular-nums; font-size: 0.74rem; }"
+    },
+    {
+      "name": "Search field",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "Square 2px ink field with an inline stroked magnifier and an example-led placeholder.",
+      "html": "<label class=\"ds-search\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6\"/><path d=\"m15 15 5 5\"/></svg><input type=\"search\" aria-label=\"Search crops\" placeholder=\"Search crops, e.g. corn or Brassica\"></label>",
+      "css": ".ds-search { position: relative; display: block; } .ds-search svg { position: absolute; left: 0.9rem; top: 50%; width: 1.3rem; height: 1.3rem; margin-top: -0.65rem; fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; pointer-events: none; } .ds-search input { box-sizing: border-box; width: 100%; min-height: 3.25rem; padding: 0.16em 1rem 0 2.9rem; border: 2px solid var(--ink); border-radius: 0; background: var(--panel); color: var(--ink); font: 600 1.1rem/1.2 'Overpass', 'Helvetica Neue', Arial, sans-serif; caret-color: var(--l-blue); } .ds-search input::placeholder { color: var(--ink-2); font-weight: 400; opacity: 1; } .ds-search input:focus-visible { outline: 3px solid var(--l-blue); outline-offset: 0; }"
+    },
+    {
+      "name": "Signage table with to-scale bars",
+      "kind": "custom",
+      "refersTo": "sign-table-head",
+      "description": "Sign-coloured head, 1px rule rows, 2px ink terminator, mono right-aligned numbers, level ticks and a bar sized from the value.",
+      "html": "<table class=\"ds-sign\" style=\"--line:var(--l-red)\"><caption>Base chance is per attempt at Mutability None.</caption><thead><tr><th scope=\"col\">Result</th><th scope=\"col\">Sold at</th><th scope=\"col\" class=\"ds-num\">Base</th><th scope=\"col\">To scale</th></tr></thead><tbody><tr><th scope=\"row\">Beefsteak Tomato</th><td><span class=\"ds-pips\"><i></i><i class=\"ds-off\"></i><i class=\"ds-off\"></i><i class=\"ds-off\"></i></span>Novice</td><td class=\"ds-num\">50%</td><td class=\"ds-bar-cell\"><span class=\"ds-scale\" style=\"--w:50%\"></span></td></tr><tr><th scope=\"row\">Golden Raspberry</th><td><span class=\"ds-pips\"><i></i><i></i><i class=\"ds-off\"></i><i class=\"ds-off\"></i></span>Apprentice</td><td class=\"ds-num\">35%</td><td class=\"ds-bar-cell\"><span class=\"ds-scale\" style=\"--w:35%\"></span></td></tr><tr><th scope=\"row\">Sungold Tomato</th><td><span class=\"ds-pips\"><i></i><i></i><i></i><i class=\"ds-off\"></i></span>Journeyman</td><td class=\"ds-num\">20%</td><td class=\"ds-bar-cell\"><span class=\"ds-scale\" style=\"--w:20%\"></span></td></tr></tbody></table>",
+      "css": ".ds-sign { width: 100%; border-collapse: collapse; font-size: 0.97rem; line-height: 1.4; color: var(--ink); font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; } .ds-sign caption { text-align: left; font-size: 0.875rem; color: var(--ink-2); padding-bottom: 0.5rem; } .ds-sign thead th { background: var(--sign); color: var(--on-sign); font-weight: 700; text-align: left; padding: 0.6rem 0.8rem 0.45rem; white-space: nowrap; font-size: 0.86rem; } .ds-sign td, .ds-sign tbody th { padding: 0.65rem 0.8rem 0.55rem; border-bottom: 1px solid var(--rule); vertical-align: top; text-align: left; } .ds-sign tbody th { font-weight: 800; } .ds-sign tbody tr:last-child > * { border-bottom: 2px solid var(--ink); } .ds-sign .ds-num { text-align: right; white-space: nowrap; font-family: 'Overpass Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace; font-variant-numeric: tabular-nums; } .ds-sign td.ds-num { font-weight: 600; } .ds-bar-cell { min-width: 8rem; width: 24%; } .ds-scale { display: block; height: 0.7rem; background: var(--line); width: var(--w); min-width: 2px; margin-top: 0.35rem; } .ds-pips { display: inline-flex; gap: 3px; margin-right: 0.6rem; vertical-align: 0.05em; } .ds-pips i { width: 5px; height: 0.85rem; background: var(--ink); display: block; } .ds-pips i.ds-off { background: var(--rule); }"
+    },
+    {
+      "name": "Service notice",
+      "kind": "card",
+      "refersTo": "service-notice",
+      "description": "The one mark for bugs, book corrections and caveats: a square 2px ink frame led by an amber warning triangle.",
+      "html": "<aside class=\"ds-notice\"><h3><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3 2.5 20h19z\"/><path d=\"M12 10v5M12 17.6v.4\"/></svg>Known bug: Growth slows the mod's own crops</h3><p>Until it is fixed, high-Growth seeds belong in planters, not in the ground. See <a href=\"#\">issue 35</a>.</p></aside>",
+      "css": ".ds-notice { max-width: 68ch; border: 2px solid var(--ink); background: var(--panel); color: var(--ink); padding: 1rem 1.2rem 1.1rem; font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; } .ds-notice h3 { display: flex; align-items: flex-start; gap: 0.6rem; margin: 0; font-size: 1.05rem; font-weight: 800; line-height: 1.25; } .ds-notice h3 svg { flex: none; width: 1.35rem; height: 1.35rem; fill: var(--l-amber); stroke: var(--on-amber); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; } .ds-notice p { margin: 0.5rem 0 0; font-size: 0.98rem; line-height: 1.6; } .ds-notice a { color: inherit; text-decoration-line: underline; text-decoration-thickness: 2px; text-decoration-color: var(--l-blue); text-underline-offset: 0.2em; } .ds-notice a:hover { text-decoration-thickness: 4px; } .ds-notice a:focus-visible { outline: 3px solid var(--l-blue); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Network map marks",
+      "kind": "custom",
+      "refersTo": "network-frame",
+      "description": "Route, feeder, ring (sold), filled dot (mutation only), square (vanilla donor), interchange ring with hollow connector, line tag, selection halo and the solid receded state.",
+      "html": "<div class=\"ds-map\"><svg viewBox=\"0 0 660 250\" role=\"img\" aria-label=\"Sample of the crossbreeding network\"><path class=\"ds-route\" style=\"--c:var(--l-orange)\" d=\"M150 70H330\"/><path class=\"ds-route\" style=\"--c:var(--l-orange)\" d=\"M330 70H510\"/><path class=\"ds-feed\" style=\"--c:var(--l-orange)\" d=\"M330 120L330 70\"/><path class=\"ds-route ds-dim\" d=\"M330 185H510\"/><path class=\"ds-link\" d=\"M510 70V185\"/><path class=\"ds-link-in\" d=\"M510 70V185\"/><g><rect class=\"ds-tag-bg\" style=\"--c:var(--l-orange)\" x=\"16\" y=\"58\" width=\"82\" height=\"24\" rx=\"12\"/><text class=\"ds-tag\" x=\"57\" y=\"75\" text-anchor=\"middle\">CHERRY</text></g><g class=\"ds-stop\" style=\"--c:var(--l-orange)\" tabindex=\"0\"><circle class=\"ds-halo\" cx=\"150\" cy=\"70\" r=\"22\"/><circle class=\"ds-dot-buy\" cx=\"150\" cy=\"70\" r=\"8.5\"/><text class=\"ds-name\" x=\"150\" y=\"48\" text-anchor=\"middle\">Cherry</text></g><g class=\"ds-stop\" style=\"--c:var(--l-orange)\" tabindex=\"0\"><circle class=\"ds-halo\" cx=\"330\" cy=\"70\" r=\"22\"/><circle class=\"ds-dot-mut\" cx=\"330\" cy=\"70\" r=\"10.5\"/><circle class=\"ds-dot-in\" cx=\"330\" cy=\"70\" r=\"4\"/><text class=\"ds-name\" x=\"330\" y=\"48\" text-anchor=\"middle\">Chocolate Pear</text><text class=\"ds-chance\" x=\"345\" y=\"95\">20%</text></g><g class=\"ds-stop\" style=\"--c:var(--l-orange)\" tabindex=\"0\"><circle class=\"ds-halo\" cx=\"330\" cy=\"120\" r=\"15\"/><rect class=\"ds-dot-feed\" x=\"324\" y=\"114\" width=\"12\" height=\"12\"/><text class=\"ds-feedname\" x=\"346\" y=\"125\">Beetroot</text></g><g class=\"ds-stop ds-selected\" style=\"--c:var(--l-orange)\" tabindex=\"0\"><circle class=\"ds-halo\" cx=\"510\" cy=\"70\" r=\"22\"/><circle class=\"ds-dot-x\" cx=\"510\" cy=\"70\" r=\"15.5\"/><circle class=\"ds-dot-mut\" cx=\"510\" cy=\"70\" r=\"10.5\"/><circle class=\"ds-dot-in\" cx=\"510\" cy=\"70\" r=\"4\"/><text class=\"ds-name\" x=\"510\" y=\"40\" text-anchor=\"middle\">Sungold</text></g><g class=\"ds-stop\" style=\"--c:var(--l-magenta)\" tabindex=\"0\"><circle class=\"ds-halo\" cx=\"510\" cy=\"185\" r=\"22\"/><circle class=\"ds-dot-x\" cx=\"510\" cy=\"185\" r=\"15.5\"/><circle class=\"ds-dot-mut\" cx=\"510\" cy=\"185\" r=\"10.5\"/><circle class=\"ds-dot-in\" cx=\"510\" cy=\"185\" r=\"4\"/><text class=\"ds-name\" x=\"510\" y=\"225\" text-anchor=\"middle\">Golden Raspberry</text></g><g class=\"ds-stop ds-stop-dim\" tabindex=\"0\"><circle class=\"ds-halo\" cx=\"330\" cy=\"185\" r=\"22\"/><circle class=\"ds-dot-buy\" cx=\"330\" cy=\"185\" r=\"8.5\"/><text class=\"ds-name\" x=\"330\" y=\"163\" text-anchor=\"middle\">Raspberry</text></g></svg></div>",
+      "css": ".ds-map { border: 2px solid var(--ink); background: var(--panel); } .ds-map svg { display: block; width: 100%; height: auto; } .ds-map text { font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; fill: var(--ink); } .ds-route { fill: none; stroke: var(--c); stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s cubic-bezier(0.16, 1, 0.3, 1); } .ds-route.ds-dim { stroke: var(--rule); stroke-width: 5; } .ds-feed { fill: none; stroke: var(--c); stroke-width: 3.5; stroke-linecap: round; } .ds-link { fill: none; stroke: var(--ink); stroke-width: 9; stroke-linecap: round; } .ds-link-in { fill: none; stroke: var(--panel); stroke-width: 4; stroke-linecap: round; } .ds-tag-bg { fill: var(--c); } .ds-map .ds-tag { font-size: 13px; font-weight: 800; letter-spacing: 0.06em; fill: var(--on-line); } .ds-name { font-size: 17px; font-weight: 700; } .ds-map .ds-chance { font-family: 'Overpass Mono', ui-monospace, Menlo, monospace; font-size: 13.5px; font-weight: 600; fill: var(--ink-2); } .ds-map .ds-feedname { font-size: 14.5px; font-weight: 500; fill: var(--ink-2); } .ds-stop { cursor: pointer; } .ds-stop:focus-visible { outline: none; } .ds-dot-buy { fill: var(--panel); stroke: var(--c); stroke-width: 4.5; } .ds-dot-mut { fill: var(--c); stroke: var(--panel); stroke-width: 2; } .ds-dot-in { fill: var(--panel); } .ds-dot-feed { fill: var(--panel); stroke: var(--ink); stroke-width: 3; } .ds-dot-x { fill: var(--panel); stroke: var(--ink); stroke-width: 3; } .ds-halo { fill: none; stroke: var(--c); stroke-width: 5; opacity: 0; transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-stop:hover .ds-halo { opacity: 1; stroke-width: 2; } .ds-stop.ds-selected .ds-halo { opacity: 1; stroke-width: 5; } .ds-stop:focus-visible .ds-halo { opacity: 1; stroke: var(--l-blue); stroke-width: 5; } .ds-stop.ds-selected .ds-name { text-decoration: underline; text-decoration-thickness: 2px; } .ds-stop-dim .ds-dot-buy { stroke: var(--l-slate); } .ds-map .ds-stop-dim .ds-name { fill: var(--ink-2); font-weight: 500; }"
+    },
+    {
+      "name": "Platform board controls",
+      "kind": "custom",
+      "refersTo": "segment",
+      "description": "Segmented stepper, square checkbox and a to-scale meter with a large mono percentage, from the board under the map.",
+      "html": "<div class=\"ds-board\" style=\"--c:var(--l-magenta)\"><div class=\"ds-stepper\"><span>Mutability of the target</span><div class=\"ds-seg\" role=\"group\"><button type=\"button\" aria-pressed=\"false\">None</button><button type=\"button\" aria-pressed=\"false\">Low</button><button type=\"button\" aria-pressed=\"true\">Med</button><button type=\"button\" aria-pressed=\"false\">High</button><button type=\"button\" aria-pressed=\"false\">V. High</button></div><label class=\"ds-check\"><input type=\"checkbox\"> Crop Duster bee</label></div><div class=\"ds-meter\"><div class=\"ds-meter-val\">70%<small>About 2 attempts on average.</small></div><div class=\"ds-meter-track\"><div class=\"ds-meter-fill\" style=\"--w:70%\"></div></div></div></div>",
+      "css": ".ds-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.1rem 2.2rem; align-items: start; padding: 1.15rem 1.25rem 1.3rem; border: 2px solid var(--ink); background: var(--panel); color: var(--ink); font-size: 0.95rem; line-height: 1.45; font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; } .ds-stepper { display: grid; gap: 0.5rem; } .ds-stepper > span { font-size: 0.86rem; color: var(--ink-2); } .ds-seg { display: flex; border: 2px solid var(--ink); } .ds-seg button { flex: 1 1 auto; min-height: 2.5rem; padding: 0.14em 0.5rem 0; border: 0; border-left: 2px solid var(--ink); background: var(--panel); color: var(--ink); font: 700 0.8rem/1 'Overpass', 'Helvetica Neue', Arial, sans-serif; cursor: pointer; white-space: nowrap; } .ds-seg button:first-child { border-left: 0; } .ds-seg button:hover { background: var(--rule); } .ds-seg button[aria-pressed='true'] { background: var(--ink); color: var(--paper); } .ds-seg button:focus-visible, .ds-check input:focus-visible { outline: 3px solid var(--l-blue); outline-offset: 3px; } .ds-check { display: flex; align-items: center; gap: 0.55rem; font-weight: 500; cursor: pointer; } .ds-check input { appearance: none; width: 1.25rem; height: 1.25rem; margin: 0; border: 2px solid var(--ink); background: var(--panel); display: grid; place-items: center; cursor: pointer; flex: none; } .ds-check input:checked { background: var(--ink); } .ds-check input:checked::after { content: ''; width: 0.6rem; height: 0.32rem; border: solid var(--paper); border-width: 0 0 2.5px 2.5px; transform: translateY(-1px) rotate(-45deg); } .ds-meter { display: grid; gap: 0.3rem; } .ds-meter-val { font: 700 1.5rem/1 'Overpass Mono', ui-monospace, Menlo, monospace; } .ds-meter-val small { font: 500 0.8rem/1.4 'Overpass', 'Helvetica Neue', Arial, sans-serif; color: var(--ink-2); display: block; margin-top: 0.3rem; } .ds-meter-track { height: 0.9rem; border: 2px solid var(--ink); background: var(--paper); } .ds-meter-fill { height: 100%; background: var(--c); width: var(--w); }"
+    },
+    {
+      "name": "Crop index row",
+      "kind": "custom",
+      "refersTo": "sign-table-cell",
+      "description": "Disclosure row: station mark, name over Latin name, form, source with level ticks, food. Open rows are bracketed by 2px ink rules.",
+      "html": "<ul class=\"ds-index\" style=\"--line:var(--l-teal)\"><li><details open><summary><svg class=\"ds-mark\" viewBox=\"0 0 20 20\" aria-hidden=\"true\"><circle class=\"ds-mk-buy\" cx=\"10\" cy=\"10\" r=\"6\"/></svg><span class=\"ds-nm\">Bok Choy<span>Brassica rapa</span></span><span class=\"ds-col\">Ground crop</span><span class=\"ds-col\"><span class=\"ds-ticks\"><i></i><i class=\"ds-off\"></i><i class=\"ds-off\"></i><i class=\"ds-off\"></i></span>Novice farmer<small>1 emerald for 4</small></span></summary><dl class=\"ds-more\"><div><dt>Form</dt><dd>Ground crop</dd></div><div><dt>Item ID</dt><dd class=\"ds-id\">productivefarming:bok_choy</dd></div></dl></details></li><li><details><summary><svg class=\"ds-mark\" viewBox=\"0 0 20 20\" aria-hidden=\"true\"><circle class=\"ds-mk-mut\" cx=\"10\" cy=\"10\" r=\"7.5\"/><circle class=\"ds-mk-in\" cx=\"10\" cy=\"10\" r=\"3\"/></svg><span class=\"ds-nm\">Rainbow Corn</span><span class=\"ds-col\">Tall crop</span><span class=\"ds-col\">Cross only<small>Sugar Pearl Corn with Black Aztec Corn</small></span></summary></details></li><li><details><summary><svg class=\"ds-mark\" viewBox=\"0 0 20 20\" aria-hidden=\"true\"><rect class=\"ds-mk-feed\" x=\"5\" y=\"5\" width=\"10\" height=\"10\"/></svg><span class=\"ds-nm\">Potato</span><span class=\"ds-col\">Ground crop</span><span class=\"ds-col\">Vanilla crop<small>gains traits from this mod</small></span></summary></details></li></ul>",
+      "css": ".ds-index { list-style: none; margin: 0; padding: 0; color: var(--ink); font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; } .ds-index li { border-bottom: 1px solid var(--rule); } .ds-index details { border-block: 2px solid transparent; } .ds-index details[open] { border-block-color: var(--ink); } .ds-index summary { display: grid; grid-template-columns: 1.4rem minmax(9rem, 1.5fr) minmax(6rem, 0.9fr) minmax(8rem, 1.1fr); gap: 0.75rem; align-items: center; padding: 0.6rem 0.4rem 0.5rem 0; cursor: pointer; list-style: none; } .ds-index summary::-webkit-details-marker { display: none; } .ds-index summary:focus-visible { outline: 3px solid var(--l-blue); outline-offset: 3px; border-radius: 2px; } .ds-mark { width: 1.25rem; height: 1.25rem; } .ds-mk-buy { fill: var(--panel); stroke: var(--line); stroke-width: 3.2; } .ds-mk-mut { fill: var(--line); } .ds-mk-in { fill: var(--panel); } .ds-mk-feed { fill: var(--panel); stroke: var(--ink); stroke-width: 2.6; } .ds-nm { font-weight: 800; line-height: 1.2; } .ds-index summary:hover .ds-nm { text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--line); text-underline-offset: 0.2em; } .ds-nm span { display: block; font-weight: 400; font-size: 0.84rem; color: var(--ink-2); text-decoration: none; } .ds-col { font-size: 0.92rem; line-height: 1.36; } .ds-col small { display: block; color: var(--ink-2); font-size: 0.8rem; } .ds-ticks { display: inline-flex; gap: 3px; margin-right: 0.45rem; vertical-align: 0.05em; } .ds-ticks i { width: 5px; height: 0.85rem; background: var(--ink); display: block; } .ds-ticks i.ds-off { background: var(--rule); } .ds-more { margin: 0; padding: 0.2rem 0 1rem 2.15rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0.6rem 1.5rem; font-size: 0.92rem; } .ds-more dt { color: var(--ink-2); font-size: 0.8rem; } .ds-more dd { margin: 0; font-weight: 600; } .ds-more .ds-id { font-family: 'Overpass Mono', ui-monospace, Menlo, monospace; font-size: 0.84rem; font-weight: 500; }"
+    },
+    {
+      "name": "Recipe row with crafting grid",
+      "kind": "custom",
+      "refersTo": "kind-plate",
+      "description": "Kind plate in a fixed column, title, description with ingredients in ink, and a crafting grid of named cells. Empty slots are dashed.",
+      "html": "<ul class=\"ds-recipes\"><li><span class=\"ds-kind\">Crafting</span><div><div class=\"ds-rt\">Feeding Trough</div><div class=\"ds-rd\">Shaped. Uses <b>Planks</b>, <b>Wheat</b>.</div><div class=\"ds-grid3\" role=\"img\" aria-label=\"Crafting grid\"><span>Planks</span><span class=\"ds-blank\"></span><span>Planks</span><span>Planks</span><span>Wheat</span><span>Planks</span><span>Planks</span><span>Planks</span><span>Planks</span></div></div></li><li><span class=\"ds-kind\">Cross</span><div><div class=\"ds-rt\">Rainbow Corn</div><div class=\"ds-rd\">Pollinate <b>Sugar Pearl Corn</b> with <b>Black Aztec Corn</b>. 40% base chance per attempt.</div></div></li></ul>",
+      "css": ".ds-recipes { list-style: none; margin: 0; padding: 0; color: var(--ink); font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; } .ds-recipes li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.4rem 1rem; padding: 0.7rem 0 0.6rem; border-bottom: 1px solid var(--rule); align-items: start; } .ds-kind { justify-self: start; display: inline-flex; align-items: center; height: 1.45rem; padding: 0.14em 0.55rem 0; border: 1.5px solid var(--ink); font-weight: 700; font-size: 0.7rem; line-height: 1; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; } .ds-rt { font-weight: 800; line-height: 1.25; } .ds-rd { font-size: 0.94rem; color: var(--ink-2); margin-top: 0.15rem; } .ds-rd b { color: var(--ink); font-weight: 600; } .ds-grid3 { display: inline-grid; grid-template-columns: repeat(3, 5.6rem); gap: 2px; margin-top: 0.5rem; } .ds-grid3 span { min-height: 3rem; display: grid; place-items: center; text-align: center; padding: 0.2rem; border: 1.5px solid var(--ink); background: var(--panel); font-size: 0.72rem; font-weight: 600; line-height: 1.36; color: var(--ink); } .ds-grid3 span.ds-blank { border-style: dashed; border-color: var(--rule); background: transparent; }"
+    },
+    {
+      "name": "Block diagram",
+      "kind": "custom",
+      "refersTo": "network-frame",
+      "description": "A structure drawn as flat square cells with 2px gaps: material by colour and cut, with a key beneath. Authored geometry, never mod artwork.",
+      "html": "<figure class=\"ds-diagram\"><div class=\"ds-blockmap\" role=\"img\" aria-label=\"Plan view: a ring of wall blocks around farmland, controller in the wall, corners optional\"><span class=\"ds-o\"></span><span class=\"ds-W\"></span><span class=\"ds-W\"></span><span class=\"ds-W\"></span><span class=\"ds-o\"></span><span class=\"ds-W\"></span><span class=\"ds-S\"></span><span class=\"ds-w\"></span><span class=\"ds-S\"></span><span class=\"ds-W\"></span><span class=\"ds-o\"></span><span class=\"ds-W\"></span><span class=\"ds-K\"></span><span class=\"ds-W\"></span><span class=\"ds-o\"></span></div><figcaption>Plan. The wall ring sits level with the soil. Corners can be left out.</figcaption></figure>",
+      "css": ".ds-diagram { display: grid; gap: 0.7rem; margin: 0; font-family: 'Overpass', 'Helvetica Neue', Arial, sans-serif; } .ds-diagram figcaption { font-size: 0.875rem; color: var(--ink-2); max-width: 34ch; } .ds-blockmap { --cell: 2rem; display: inline-grid; gap: 2px; grid-template-columns: repeat(5, var(--cell)); grid-auto-rows: var(--cell); justify-content: start; } .ds-blockmap span { display: block; box-sizing: border-box; width: var(--cell); height: var(--cell); } .ds-S { background: var(--l-brown); } .ds-W { background: var(--ink); } .ds-K { background: var(--l-blue); position: relative; } .ds-K::after { content: ''; position: absolute; inset: 28%; background: var(--panel); border-radius: 50%; } .ds-o { border: 2px dashed var(--ink-2); } .ds-w { background: var(--l-blue); clip-path: inset(22% 0 0 0); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Network Map",
+    "overview": "Productive Farming is a network, so the guide is drawn as one. Mutation chains are lines, crops are stations, and everything around them is wayfinding: a dark signage bar across the top, a rail that lists the sections as stops on one vertical line, lettered bullets, ruled signage tables and a platform board under the map. The reference is transit diagram and signage standards, printed flat. It is a day map on white paper and a night map on navy, and the two are the same sheet with the colours re-inked.\n\nThe system is dense and plain-spoken. Readers arrive with the game open beside them and one question in mind, so every surface answers before it explains: a mark you can read without a legend, a number in mono, a bar whose length is the quantity. Nothing is decorative. Colour identifies a line, weight identifies importance, and shape identifies kind.\n\nIt refuses the fan-wiki arrangement of dirt-texture banners, pixel fonts and walls of item icons, and it refuses the dark neon gamer dashboard. The mod is All Rights Reserved, so nothing here is or resembles its artwork: items are named in type, structures are drawn as authored flat blocks.",
+    "keyCharacteristics": [
+      "Flat sheet: paper, ink and a fixed set of ten line colours, in a day and a night inking.",
+      "One signage grotesque (Overpass) with its mono companion (Overpass Mono) for anything measured or coded, both self-hosted.",
+      "Square surfaces for information, round shapes for stations, bullets and things you press.",
+      "State and kind are carried by mark as well as hue: ring, filled dot, square, double ring, tick count.",
+      "Drawn lengths equal real quantities.",
+      "Heavy ink rules (2px and 6px) do the work that shadows and tinted cards do elsewhere."
+    ],
+    "rules": [
+      {
+        "name": "The Locked Palette Rule",
+        "body": "Every colour on a surface is one of the tokens at full strength. There are no in-between tones: no opacity-derived tints, no colour mixing, no gradients. A thing that needs to be quieter moves to Second Ink, Rule or Line Slate.",
+        "section": "colors"
+      },
+      {
+        "name": "The Local Meaning Rule",
+        "body": "A line colour means one thing per diagram. In the rail and section openers it means the section; on the network map it means the crop family; in a block diagram it means the material. Set the colour through `--line` (sections) or `--c` (marks) on the nearest container and let links, list markers, step numerals and scale bars inherit it.",
+        "section": "colors"
+      },
+      {
+        "name": "The Amber Takes Ink Rule",
+        "body": "Amber never carries light type and never appears as text on paper. It is a fill with dark type on it, or a stroke.",
+        "section": "colors"
+      },
+      {
+        "name": "The Data Colour Exception",
+        "body": "Flower discs and blend samples are filled with the colour value the data records for that flower. That colour is the content. It always sits inside a 2.5px to 3px ink ring and never leaves the disc.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Overpass and Overpass Mono are the whole type system. Hierarchy comes from weight (400, 500 to 600, 700, 800) and size, not from a second face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Means Measured Rule",
+        "body": "Mono is for numbers, percentages, units, versions, IDs and hex values. Words stay in the sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Signs Only Rule",
+        "body": "Uppercase with tracking exists in exactly two places, both of them plates that name a category: the line tag and the recipe kind plate. Headings, labels and buttons are sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The To-Scale Rule",
+        "body": "A drawn length is a real quantity. Scale bars, the board's meter and the level ticks are sized from the data, every bar in one table shares one stated scale, and the column is headed \"To scale\". Never draw a bar whose length is approximate or ornamental.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Sheet Rule",
+        "body": "Nothing floats. If a surface needs to read as separate, give it an ink border or a rule; do not lift it.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Knockout Ring Rule",
+        "body": "Where a round mark sits on a line, it carries a ring in the ground colour so the line appears to stop short of it (2px to 3px, built as a zero-offset, zero-blur spread in Map Paper on bullets, and as a Panel-coloured stroke on map dots). This is a print keyline, not elevation, and it is the only use of the shadow property.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Mark Before Hue Rule",
+        "body": "Kind and state are readable in one ink. Sold, cross-only, vanilla and interchange are four different shapes; villager level is a tick count; selection is a ring and an underline. Colour agrees with the mark and never replaces it.",
+        "section": "components"
+      },
+      {
+        "name": "The Halo Is Not A Ring Rule",
+        "body": "The interchange ring is ink, permanent and tight to the mark. The selection halo is the line's colour, transient and set wide. Do not draw either in the other's colour or radius.",
+        "section": "components"
+      },
+      {
+        "name": "The Solid Recede Rule",
+        "body": "Dimmed means re-inked in Rule, Second Ink or Line Slate, and thinned or lightened in weight. It never means lower opacity.",
+        "section": "components"
+      },
+      {
+        "name": "The Letter And Number Rule",
+        "body": "Sections are lettered and every section has a bullet. Numerals appear only where the order of steps matters.",
+        "section": "components"
+      },
+      {
+        "name": "The One Gotcha Mark Rule",
+        "body": "Every bug, book correction and caveat uses the service notice with the amber triangle. No second callout style exists.",
+        "section": "components"
+      },
+      {
+        "name": "The Names Not Icons Rule",
+        "body": "Game items appear as their names in type. Icons are limited to a handful of stroked interface glyphs (contents, theme, search, arrow, warning) drawn inline.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do set `--line` on a section or `--c` on a mark and let underlines, markers, numerals and bars inherit it.",
+      "Do define any new colour twice, once for the day map and once for the night map, and check type on it in both.",
+      "Do frame figures and fields with 2px ink and divide rows with 1px Rule; open a figure or a section with a 6px rule.",
+      "Do keep information surfaces square and stations, bullets and pressable pills fully round.",
+      "Do put every measured value in Overpass Mono with tabular figures, and right-align number columns.",
+      "Do size every bar, meter and tick from the data and say what the scale is.",
+      "Do give every state a mark as well as a colour, and recede unrelated marks in solid Rule or Line Slate.",
+      "Do give a wide diagram a minimum width and let it scroll inside its frame with a visible cue, and turn tables into labelled stacked records below 44rem.",
+      "Do keep the draw-on and all transitions behind the reduced-motion preference, on the one easing curve.",
+      "Do use the service notice for every caveat, and name game items in words."
+    ],
+    "donts": [
+      "Don't use tints: no opacity on colour, no `color-mix`, no lighter or darker step of a line colour. The Panel step on the night map and Rule as a hover fill are the only quiet grounds.",
+      "Don't use gradients of any kind, on fills, text, borders or the map.",
+      "Don't use cast shadows, blur or glow. The paper knockout ring around a mark on a line is the only shadow-property use.",
+      "Don't use mod textures, item sprites, models, or anything traced, sampled or derived from the mod's artwork. Authored flat geometry and colour values from the data only.",
+      "Don't use pixel fonts, dirt-texture banners or walls of item icons, and don't build a dark neon dashboard; the night map is the day map re-inked on navy.",
+      "Don't round a frame, table, field or cell, and don't square a bullet, station or pill.",
+      "Don't put light type on amber or set amber as text on paper.",
+      "Don't fade a dimmed route or station with opacity.",
+      "Don't draw the selection halo in ink or the interchange ring in a line colour.",
+      "Don't number things whose order does not matter, or letter anything that is not a section.",
+      "Don't add a second typeface, a second callout style, or uppercase tracked type outside line tags and kind plates."
+    ]
+  }
+}

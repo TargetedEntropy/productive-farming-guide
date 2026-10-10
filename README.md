@@ -75,7 +75,7 @@ python3 -m http.server 8000
 | `assets/app.js` | Draws the map, tables, crop index and recipe finder |
 | `assets/data.js` | Generated dataset |
 | `tools/build_data.py` | Dataset generator |
-| `PRODUCT.md`, `DESIGN.md` | Product and design notes |
+| `PRODUCT.md`, `DESIGN.md` | Product notes and the design system the site follows |
 
 ## Licence
 
